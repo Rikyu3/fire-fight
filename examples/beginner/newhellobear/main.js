@@ -23,7 +23,7 @@ window.onload = function() {
     var sound1 = game.assets['music.mp3'].clone();
     sound1.play();
 
-    var map = new Map(16, 16);
+    var map = new Map(16,16);
     map.image=game.assets["map0.png"];
     mapArray = [
         [3,3,3,0,0,0,0,0,0,0,0,0,0,18,18,18,18,18,18,18],
@@ -497,17 +497,15 @@ window.onload = function() {
         aitem1.image = game.assets["icon0.png"];
         aitem1.x = 63;
         aitem1.y = 252;
-        aitem1.hp = 45;
+        aitem1.hp = 790;
         aitem1.frame = 11;
         game.rootScene.addChild(aitem1);
         aitem1.addEventListener("enterframe", function() {
           //  もし、いまいるブロックが19なら、再生する
-           if(this.intersect(bear)){  //プレイヤーが敵と衝突しているかを判定
+           if(this.intersect(bear)) {  //プレイヤーが敵と衝突しているかを判定
 
-             console.log(this.visible);
-             console.log(this.hp);
-
-
+             //console.log(this.visible);
+             //console.log(this.hp);
 
                  if(this.hp == 0){
                    this.visible = false;  //プレイヤーを非表示にする
@@ -528,12 +526,16 @@ window.onload = function() {
         aitem2.image = game.assets["icon0.png"];
         aitem2.x = 63;
         aitem2.y = 271;
-        aitem2.hp = 45;
+        aitem2.hp = 50;
         aitem2.frame = 11;
         game.rootScene.addChild(aitem2);
         aitem2.addEventListener("enterframe", function() {
 
            if(this.intersect(bear)){  //プレイヤーが敵と衝突しているかを判定
+
+             //console.log(this.visible);  console.logはconsole画面でその通り実行されているかを観れる
+
+             //console.log(this.hp);
 
                  if(this.hp == 0){
                    this.visible = false;  //プレイヤーを非表示にする
@@ -557,6 +559,37 @@ window.onload = function() {
         aitem3.y = 211;
         aitem3.frame = 42;
         game.rootScene.addChild(aitem3);
+
+        var aitem4 = new Sprite(16,16);
+        aitem4.image = game.assets["icon0.png"];
+        aitfghvcfgghem4.x = 50;
+        aitem4.y = 252;
+        aitem4.hp = 500;
+        aitem4.frame = 11;
+        game.rootScene.addChild(aitem4);
+        aitem4.addEventListener("enterframe", function() {
+          //  もし、いまいるブロックが19なら、再生する
+           if(this.intersect(bear)) {  //プレイヤーが敵と衝突しているかを判定
+
+             //console.log(this.visible);
+
+             //console.log(this.hp);
+
+                 if(this.hp == 0){
+                   this.visible = false;  //プレイヤーを非表示にする
+                 }
+                 if(this.hp>0){
+                    game.assets['beam.mp3'].play();
+                   this.hp = this.hp -1;
+          //  s       aitem1hp.text = "aitem1hp hp  " + aitem1hp.hp;
+                    if(bear.hp>0){
+                       bear.hp = bear.hp -1;
+                       bearHp.text = "bear hp " + bear.hp;
+                     }
+             }
+           }
+        });
+
 
     };
     game.start();
