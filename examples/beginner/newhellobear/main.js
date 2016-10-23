@@ -495,7 +495,7 @@ window.onload = function() {
 
         var aitem1 = new Sprite(16,16);
         aitem1.image = game.assets["icon0.png"];
-        aitem1.x = 64;
+        aitem1.x = 63;
         aitem1.y = 252;
         aitem1.hp = 45;
         aitem1.frame = 11;
@@ -526,7 +526,7 @@ window.onload = function() {
 
         var aitem2 = new Sprite(16,16);
         aitem2.image = game.assets["icon0.png"];
-        aitem2.x = 64;
+        aitem2.x = 63;
         aitem2.y = 271;
         aitem2.hp = 45;
         aitem2.frame = 11;
