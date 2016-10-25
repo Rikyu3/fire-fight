@@ -7,8 +7,9 @@ window.onload = function() {
   var height = 320;
   var forward = 'right';
   var cell = 32;
-  var labelX = 230;
-  var bearInitHp = 9999;
+  var labelX = 207;
+  var knightInitHp = 9999;
+
 
   game.preload("chara5.png");
   game.preload("map0.png");
@@ -27,6 +28,8 @@ window.onload = function() {
 
     var map = new Map(16,16);
     map.image=game.assets["map0.png"];
+
+
 
     premapArray= [
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -53,12 +56,12 @@ window.onload = function() {
 
 
     mapArray = [
-        [3,3,3,0,0,0,0,0,0,0,0,0,0,18,18,18,18,18,18,18],
-        [3,20,3,0,0,0,0,0,0,0,0,0,0,18,0,0,0,0,0,18],
-        [3,3,3,0,0,0,0,0,0,0,0,0,0,18,0,0,0,0,0,18],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,18,0,0,0,0,0,18],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,18,0,0,0,0,0,18],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,18,18,18,18,18,18,18],
+        [3,3,3,0,0,0,0,0,0,0,0,0,18,18,18,18,18,18,18,18],
+        [3,20,3,0,0,0,0,0,0,0,0,0,18,0,0,0,0,0,0,18],
+        [3,3,3,0,0,0,0,0,0,0,0,0,18,0,0,0,0,0,0,18],
+        [0,0,0,0,0,0,0,0,0,0,0,0,18,0,0,0,0,0,0,18],
+        [0,0,0,0,0,0,0,0,0,0,0,0,18,0,0,0,0,0,0,18],
+        [0,0,0,0,0,0,0,0,0,0,0,0,18,18,18,18,18,18,18,18],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,6,6,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,6,22,6,0,0,0,0,0,0,21,0,21,0,21,0,21,0,0,0],
@@ -67,23 +70,23 @@ window.onload = function() {
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [23,23,23,23,23,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [23,0,0,0,23,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [23,0,0,0,23,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [23,0,0,0,23,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [23,0,0,0,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [23,0,0,0,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [23,0,0,0,23,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [23,23,23,23,23,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        [23,0,0,0,23,0,0,0,0,23,23,23,23,24,24,23,23,23,23,23],
+        [23,0,0,0,23,0,0,0,0,23,18,18,18,18,18,18,18,18,18,23],
+        [23,0,0,0,19,0,0,0,0,23,18,18,18,18,18,18,18,18,18,23],
+        [23,0,0,0,19,0,0,0,0,23,18,18,18,18,18,18,18,18,18,23],
+        [23,0,0,0,23,0,0,0,0,23,18,18,18,18,18,18,18,18,18,23],
+        [23,23,23,23,23,0,0,0,0,23,18,25,18,25,18,25,18,25,18,23]
       ]
 
-      map.loadData(premapArray, mapArray);
+      map.loadData(premapArray,mapArray);
 
       map.collisionData =[
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1],
+        [0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1],
+        [0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,1,0,1,0,0,0,0,0,0,1,0,1,0,1,0,1,0,0,0],
@@ -92,12 +95,12 @@ window.onload = function() {
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        [1,0,0,0,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1],
+        [1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1],
+        [1,1,1,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1]
       ]
 
 
@@ -173,24 +176,34 @@ window.onload = function() {
         [6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6]
       ]
 
-      // 文字表示
-      bearHp = new Label();
-      bearHp.font = "10px gothic";
-      bearHp.text = "bear hp " + bearInitHp;
-      bearHp.x = labelX;
-      bearHp.y = 20;
-      game.rootScene.addChild(bearHp);
 
-      bear = new Sprite(32, 32);
-      bear.image = game.assets["chara5.png"];
-      bear.x = 0;
-      bear.y = 0;
-      bear.frame = 18;
-      bear.speed = 8;
-      bear.hp = bearInitHp;
-      game.rootScene.addChild(bear);
+      end = new Sprite(189, 97);
+      end.image = game.assets["end.png"];
+      end.x = (game.width-end.width)/2;
+      end.y = (game.height-end.height)/2;
+      game.rootScene.addChild(end);
+      end.visible = false;  //プレイヤーを非表示にする
+
+
+
+      // 文字表示
+      knightHp = new Label();
+      knightHp.font = "10px gothic";
+      knightHp.text = "knight hp " + knightInitHp;
+      knightHp.x = labelX;
+      knightHp.y = 20;
+      game.rootScene.addChild(knightHp);
+
+      knight = new Sprite(32, 32);
+      knight.image = game.assets["chara5.png"];
+      knight.x = 0;
+      knight.y = 0;
+      knight.frame = 18;
+      knight.speed = 8;
+      knight.hp = knightInitHp;
+      game.rootScene.addChild(knight);
       game.keybind(13, 'enter');
-      bear.addEventListener("enterframe", function(){
+      knight.addEventListener("enterframe", function(){
         var sword = 13;
 
           /**
@@ -262,12 +275,13 @@ window.onload = function() {
       });
 
       // 文字表示
-      slimeHp = new Label();
-      slimeHp.font = "10px gothic";
-      slimeHp.text = "slime hp 70";
-      slimeHp.x = labelX;
-      slimeHp.y = 35;
-      game.rootScene.addChild(slimeHp);
+      slimehp = new Label();
+      slimehp.font = "10px gothic";
+      slimehp.text = "slime green hp 120";
+      slimehp.x = labelX;
+      slimehp.y = 35;
+      game.rootScene.addChild(slimehp);
+
 
       var slime = new Sprite(32,32);
       slime.image = game.assets["chara6.png"];
@@ -299,19 +313,19 @@ window.onload = function() {
             this.y = y;
           }
         }
-        if(this.intersect(bear)){  //プレイヤーが敵と衝突しているかを判定
-          if(game.input.enter){
-            if(this.hp == 0){
-              this.visible = false;  //プレイヤーを非表示にする
-            }
-            if(this.hp>0){
-              this.hp = this.hp -1;
-              slimeHp.text = "slime hp " + slime.hp;
-              if(slime.hp % 7 == 0){
-                if(bear.hp>0){
-                  bear.hp = bear.hp -1;
-                  bearHp.text = "bear hp " + bear.hp;
-                }
+        if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
+            if(game.input.enter){
+              if(this.hp == 0){
+                this.visible = false;  //プレイヤーを非表示にする
+              }
+              if(this.hp>0){
+                this.hp = this.hp -1;
+                slimehp.text = "slime hp  " + slime.hp;
+                if(this.hp % 5 == 0){
+                  if(knight.hp>0){
+                    knight.hp = knight.hp -1;
+                    knightHp.text = "knighthp " + knight.hp;
+                  }
               }
             }
           }
@@ -326,27 +340,29 @@ window.onload = function() {
       kaidan.y = 212;
       game.rootScene.addChild(kaidan)
       kaidan.addEventListener("enterframe", function() {
-        if(this.intersect(bear)){  //プレイヤーが敵と衝突しているかを判定
+        if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
           sound1.stop();
           map.collisionData = map2.collisionData
-          game.rootScene.insertBefore(map2,bearHp);
+          game.rootScene.insertBefore(map2,knightHp);
           game.rootScene.removeChild(map)
-          //game.rootScene.removeChild(slime2)
-          //game.rootScene.removeChild(slime)
-          //game.rootScene.removeChild(slime3)
-          game.rootScene.removeChild(slime4)
-          //game.rootScene.removeChild(slimeHp)
-          //game.rootScene.removeChild(slime2hp)
-          //game.rootScene.removeChild(slime3hp)
           game.rootScene.removeChild(aitem3)
+          //game.rootScene.removeChild(slime4)
+          //game.rootScene.removeChild(slime)
+          //game.rootScene.removeChild(slime2)
+          //game.rootScene.removeChild(darkknight)
+          //game.rootScene.removeChild(slimehp)
+          //game.rootScene.removeChild(slimeredhp)
+          //game.rootScene.removeChild(darkknighthp)
           //game.rootScene.removeChild(aitem1)
           //game.rootScene.removeChild(aitem2)
+          //game.rootScene.removeChild(aitem3)
+          //game.rootScene.removeChild(aitem4)
         }
       });
       // 文字表示
       slime2hp = new Label();
       slime2hp.font = "10px gothic";
-      slime2hp.text = "slime2 hp 120";
+      slime2hp.text = "slime red hp 120";
       slime2hp.x = labelX;
       slime2hp.y = 51;
       game.rootScene.addChild(slime2hp);
@@ -383,7 +399,7 @@ window.onload = function() {
             }
           }
 
-          if(this.intersect(bear)){  //プレイヤーが敵と衝突しているかを判定
+          if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
               if(game.input.enter){
                 if(this.hp == 0){
                   this.visible = false;  //プレイヤーを非表示にする
@@ -392,9 +408,9 @@ window.onload = function() {
                   this.hp = this.hp -1;
                   slime2hp.text = "slime2 hp  " + slime2.hp;
                   if(this.hp % 5 == 0){
-                    if(bear.hp>0){
-                      bear.hp = bear.hp -1;
-                      bearHp.text = "bear hp " + bear.hp;
+                    if(knight.hp>0){
+                      knight.hp = knight.hp -1;
+                      knightHp.text = "knight hp " + knight.hp;
                     }
                 }
               }
@@ -403,20 +419,20 @@ window.onload = function() {
         });
 
         // 文字表示
-        slime3hp = new Label();
-        slime3hp.font = "10px gothic";
-        slime3hp.text = "slime3 hp 200";
-        slime3hp.x = labelX;
-        slime3hp.y = 67;
-        game.rootScene.addChild(slime3hp);
+        darkknighthp = new Label();
+        darkknighthp.font = "10px gothic";
+        darkknighthp.text = "dark knight hp 200";
+        darkknighthp.x = labelX;
+        darkknighthp.y = 67;
+        game.rootScene.addChild(darkknighthp);
 
-        var slime3 = new Sprite(32,32);
-        slime3.image = game.assets["chara7.png"];
-        slime3.x = 55;
-        slime3.y = 55;
-        slime3.hp = 200;
-        game.rootScene.addChild(slime3);
-        slime3.addEventListener("enterframe", function() {
+        var darkknight = new Sprite(32,32);
+        darkknight.image = game.assets["chara7.png"];
+        darkknight.x = 55;
+        darkknight.y = 55;
+        darkknight.hp = 200;
+        game.rootScene.addChild(darkknight);
+        darkknight.addEventListener("enterframe", function() {
           var dx = 0;
           var dy = 0;
           this.frame = 3 + this.age %3;
@@ -442,18 +458,18 @@ window.onload = function() {
             }
           }
 
-          if(this.intersect(bear)){ 　//プレイヤーが敵と衝突しているかを判定
+          if(this.intersect(knight)){ 　//プレイヤーが敵と衝突しているかを判定
               if(game.input.enter){
                 if(this.hp == 0){
                   this.visible = false;　//プレイヤーを非表示にする　
                 }
                 if(this.hp>0){
                   this.hp = this.hp -1;
-                  slime3hp.text = "slime3 hp  " + slime3.hp;
+                  darkknighthp.text = "darkknight hp  " + darkknight.hp;
                   if(this.hp % 5 == 0){
-                    if(bear.hp>0){
-                      bear.hp = bear.hp -1;
-                      bearHp.text = "bear hp " + bear.hp;
+                    if(knight.hp>0){
+                      knight.hp = knight.hp -1;
+                      knightHp.text = "knight hp " + knight.hp;
                     }
                 }
                 }
@@ -461,13 +477,13 @@ window.onload = function() {
           }
         });
 
-        var slime4 = new Sprite(32,32);
-        slime4.image = game.assets["chara6.png"];
-        slime4.x = 70;
-        slime4.y = 60;
-        slime4.hp = 100;
-        game.rootScene.addChild(slime4);
-        slime4.addEventListener("enterframe", function() {
+        //var slime4 = new Sprite(32,32);
+        //slime4.image = game.assets["chara6.png"];
+        //slime4.x = 70;
+        //slime4.y = 60;
+        //slime4.hp = 100;
+        //game.rootScene.addChild(slime4);
+        //slime4.addEventListener("enterframe", function() {
         //   var dx = 0;
         //   var dy = 0;
         //   this.frame = 3 + this.age %3;
@@ -493,31 +509,26 @@ window.onload = function() {
         //     }
         //   }
 
-           if(this.intersect(bear)){  //プレイヤーが敵と衝突しているかを判定
-               if(game.input.enter){
-                 if(this.hp == 0){
-                   this.visible = false;  //プレイヤーを非表示にする
-                 }
-                 if(this.hp>0){
-                   this.hp = this.hp -1;
+           //if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
+            //   if(game.input.enter){
+              //   if(this.hp == 0){
+                //   this.visible = false;  //プレイヤーを非表示にする
+                 //}
+                 //if(this.hp>0){
+                   //this.hp = this.hp -1;
           //         slime4hp.text = "slime4 hp  " + slime4.hp;
-                   if(this.hp % 5 == 0){
-                    if(bear.hp>0){
-                       bear.hp = bear.hp -1;
-                       bearHp.text = "bear hp " + bear.hp;
-                     }
-                 }
-               }
-             }
-           }
-        });
+                   //if(this.hp % 5 == 0){
+                  //  if(knight.hp>0){
+                    //   knight.hp = knight.hp -1;
+                      // knightHp.text = "knight hp " + knight.hp;
+                    // }
+                // }
+              // }
+            // }
+          // }
+        //});
 
-        end = new Sprite(189, 97);
-        end.image = game.assets["end.png"];
-        end.x = (game.width-end.width)/2;
-        end.y = (game.height-end.height)/2;
-        game.rootScene.addChild(end);
-        end.visible = false;  //プレイヤーを非表示にする
+
 
 
         var aitem1 = new Sprite(16,16);
@@ -529,7 +540,7 @@ window.onload = function() {
         game.rootScene.addChild(aitem1);
         aitem1.addEventListener("enterframe", function() {
           //  もし、いまいるブロックが19なら、再生する
-           if(this.intersect(bear)) {  //プレイヤーが敵と衝突しているかを判定
+           if(this.intersect(knight)) {  //プレイヤーが敵と衝突しているかを判定
 
              //console.log(this.visible);
              //console.log(this.hp);
@@ -541,9 +552,9 @@ window.onload = function() {
                     game.assets['beam.mp3'].play();
                    this.hp = this.hp -1;
           //         aitem1hp.text = "aitem1hp hp  " + aitem1hp.hp;
-                    if(bear.hp>0){
-                       bear.hp = bear.hp -1;
-                       bearHp.text = "bear hp " + bear.hp;
+                    if(knight.hp>0){
+                       knight.hp = knight.hp -1;
+                       knightHp.text = "knight hp " + knight.hp;
                      }
              }
            }
@@ -558,7 +569,7 @@ window.onload = function() {
         game.rootScene.addChild(aitem2);
         aitem2.addEventListener("enterframe", function() {
 
-           if(this.intersect(bear)){  //プレイヤーが敵と衝突しているかを判定
+           if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
 
              //console.log(this.visible);  console.logはconsole画面でその通り実行されているかを観れる
 
@@ -572,9 +583,9 @@ window.onload = function() {
                    sound3.play();
                    this.hp = this.hp -1;
           //         aitem1hp.text = "aitem1hp hp  " + aitem1hp.hp;
-                    if(bear.hp>0){
-                       bear.hp = bear.hp -1;
-                       bearHp.text = "bear hp " + bear.hp;
+                    if(knight.hp>0){
+                       knight.hp = knight.hp -1;
+                       knightHp.text = "knight hp " + knight.hp;
                      }
              }
            }
@@ -596,7 +607,7 @@ window.onload = function() {
         game.rootScene.addChild(aitem4);
         aitem4.addEventListener("enterframe", function() {
           //  もし、いまいるブロックが19なら、再生する
-           if(this.intersect(bear)) {  //プレイヤーが敵と衝突しているかを判定
+           if(this.intersect(knight)) {  //プレイヤーが敵と衝突しているかを判定
 
              //console.log(this.visible);
 
@@ -609,9 +620,9 @@ window.onload = function() {
                     game.assets['beam.mp3'].play();
                    this.hp = this.hp -1;
           //  s       aitem1hp.text = "aitem1hp hp  " + aitem1hp.hp;
-                    if(bear.hp>0){
-                       bear.hp = bear.hp -1;
-                       bearHp.text = "bear hp " + bear.hp;
+                    if(knight.hp>0){
+                       knight.hp = knight.hp -1;
+                       knightHp.text = "knight hp " + knight.hp;
                      }
              }
            }
