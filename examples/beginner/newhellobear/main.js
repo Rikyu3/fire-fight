@@ -29,8 +29,6 @@ window.onload = function() {
     var map = new Map(16,16);
     map.image=game.assets["map0.png"];
 
-
-
     premapArray= [
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -53,7 +51,6 @@ window.onload = function() {
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
       ]
-
 
     mapArray = [
         [3,3,3,0,0,0,0,0,0,0,0,0,18,18,18,18,18,18,18,18],
@@ -103,11 +100,12 @@ window.onload = function() {
         [1,1,1,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1]
       ]
 
-
       game.rootScene.addChild(map);
 
       var map2 = new Map(16, 16);
+
       map2.image=game.assets["map1.png"];
+
       mapArray2 = [
           [194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194],
           [194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194],
@@ -176,6 +174,34 @@ window.onload = function() {
         [6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6]
       ]
 
+      var map4 = new Map(16, 16);
+
+      map4.image=game.assets["map1.png"];
+
+      mapArray4 = [
+
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+      ]
+
 
       end = new Sprite(189, 97);
       end.image = game.assets["end.png"];
@@ -186,6 +212,7 @@ window.onload = function() {
 
 
 
+
       // 文字表示
       knightHp = new Label();
       knightHp.font = "10px gothic";
@@ -193,6 +220,7 @@ window.onload = function() {
       knightHp.x = labelX;
       knightHp.y = 20;
       game.rootScene.addChild(knightHp);
+      knightHp.color = "red";		// 色を変更
 
       knight = new Sprite(32, 32);
       knight.image = game.assets["chara5.png"];
@@ -281,6 +309,7 @@ window.onload = function() {
       slimehp.x = labelX;
       slimehp.y = 35;
       game.rootScene.addChild(slimehp);
+      slimehp.color = "red";		// 色を変更
 
 
       var slime = new Sprite(32,32);
@@ -333,7 +362,9 @@ window.onload = function() {
       });
       var kaidan = new Sprite(16,16);
       var sound2 = game.assets['kowai.mp3'].clone();
-      sound2.play();
+      if(map2){
+        sound2.play();
+      }
       kaidan.image = game.assets["map0.png"];
       kaidan.frame = 14;
       kaidan.x = 32;
@@ -357,8 +388,43 @@ window.onload = function() {
           //game.rootScene.removeChild(aitem2)
           //game.rootScene.removeChild(aitem3)
           //game.rootScene.removeChild(aitem4)
+          //game.rrotScene.removeChild(house)
+
         }
       });
+
+
+
+      if(knightHp<9750){
+        var kaidan2 = new Sprite(16,16);
+        kaidan2.image = game.assets["map0.png"];
+        kaidan2.frame = 14;
+        kaidan2.x = 1;
+        kaidan2.y = 1;
+        game.rootScene.addChild(kaidan2)
+        kaidan2.addEventListener("enterframe", function() {
+          if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定          map.collisionData = map2.collisionData
+            game.rootScene.insertBefore(map3,knightHp);
+            game.rootScene.removeChild(map)
+            game.rootScene.removeChild(aitem3)
+            //game.rootScene.removeChild(slime4)
+            //game.rootScene.removeChild(slime)
+            //game.rootScene.removeChild(slime2)
+            //game.rootScene.removeChild(darkknight)
+            //game.rootScene.removeChild(slimehp)
+            //game.rootScene.removeChild(slimeredhp)
+            //game.rootScene.removeChild(darkknighthp)
+            //game.rootScene.removeChild(aitem1)
+            //game.rootScene.removeChild(aitem2)
+            //game.rootScene.removeChild(aitem4)
+            //game.rrotScene.removeChild(house)
+
+          }
+        });
+      }
+
+
+
       // 文字表示
       slime2hp = new Label();
       slime2hp.font = "10px gothic";
@@ -366,6 +432,7 @@ window.onload = function() {
       slime2hp.x = labelX;
       slime2hp.y = 51;
       game.rootScene.addChild(slime2hp);
+      slime2hp.color = "red";		// 色を変更
 
         var slime2 = new Sprite(32,32);
         slime2.image = game.assets["chara6.png"];
@@ -425,6 +492,8 @@ window.onload = function() {
         darkknighthp.x = labelX;
         darkknighthp.y = 67;
         game.rootScene.addChild(darkknighthp);
+        darkknighthp.color = "red";		// 色を変更
+
 
         var darkknight = new Sprite(32,32);
         darkknight.image = game.assets["chara7.png"];
@@ -535,7 +604,7 @@ window.onload = function() {
         aitem1.image = game.assets["icon0.png"];
         aitem1.x = 63;
         aitem1.y = 252;
-        aitem1.hp = 790;
+        aitem1.hp = 800;
         aitem1.frame = 11;
         game.rootScene.addChild(aitem1);
         aitem1.addEventListener("enterframe", function() {
@@ -564,7 +633,7 @@ window.onload = function() {
         aitem2.image = game.assets["icon0.png"];
         aitem2.x = 63;
         aitem2.y = 271;
-        aitem2.hp = 50;
+        aitem2.hp = 800;
         aitem2.frame = 11;
         game.rootScene.addChild(aitem2);
         aitem2.addEventListener("enterframe", function() {
@@ -627,6 +696,35 @@ window.onload = function() {
              }
            }
         });
+
+
+        var house = new Sprite(16,16);
+        house.image = game.assets["map0.png"];
+        house.frame = 21;
+        house.x = 20;
+        house.y = 20;
+        game.rootScene.addChild(house)
+        kaidan.addEventListener("enterframe", function() {
+          if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
+            sound1.stop();
+            map.collisionData = map3.collisionData
+            game.rootScene.insertBefore(map4,knightHp);
+            game.rootScene.removeChild(map)
+            game.rootScene.removeChild(house)
+            //game.rootScene.removeChild(slime4)
+            //game.rootScene.removeChild(slime)
+            //game.rootScene.removeChild(slime2)
+            //game.rootScene.removeChild(darkknight)
+            //game.rootScene.removeChild(slimehp)
+            //game.rootScene.removeChild(slimeredhp)
+            //game.rootScene.removeChild(darkknighthp)
+            //game.rootScene.removeChild(aitem1)
+            //game.rootScene.removeChild(aitem2)
+            //game.rootScene.removeChild(aitem3)
+            //game.rootScene.removeChild(aitem4)
+          }
+        });
+
 
 
     };
