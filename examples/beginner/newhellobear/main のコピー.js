@@ -362,6 +362,9 @@ window.onload = function() {
       });
       var kaidan = new Sprite(16,16);
       var sound2 = game.assets['kowai.mp3'].clone();
+      if(map2){
+        sound2.play();
+      }
       kaidan.image = game.assets["map0.png"];
       kaidan.frame = 14;
       kaidan.x = 32;
@@ -370,8 +373,6 @@ window.onload = function() {
       kaidan.addEventListener("enterframe", function() {
         if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
           sound1.stop();
-          var sound2 = game.assets['kowai.mp3'].clone();
-          sound2.play();
           map.collisionData = map2.collisionData
           game.rootScene.insertBefore(map2,knightHp);
           game.rootScene.removeChild(map)
