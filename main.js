@@ -17,13 +17,13 @@ window.onload = function() {
   game.preload("chara6.png");
   game.preload("chara7.png");
   game.preload("end.png");
-  game.preload(['chara1.png','icon0.png','music.mp3','kowai.mp3','beam.mp3']);
+  game.preload(['chara1.png','icon0.png','music2.mp3','kowai.mp3','beam.mp3','sword.mp3','sword2.mp3']);
   game.preload("icon0.png")
 
 
 
   game.onload = function() {
-    var sound1 = game.assets['music.mp3'].clone();
+    var sound1 = game.assets['music2.mp3'].clone();
     sound1.play();
 
     var map = new Map(16,16);
@@ -233,7 +233,6 @@ window.onload = function() {
       game.keybind(13, 'enter');
       knight.addEventListener("enterframe", function(){
         var sword = 13;
-
           /**
           左はしは０、右はしはwidth
           上はしは０、下はしはheight
@@ -299,6 +298,8 @@ window.onload = function() {
           }else if (forward == 'up') {
            this.frame = 32 + this.age %4;
           }
+          var sound3 = game.assets['sword2.mp3'].clone();
+          sound3.play();
         }
       });
 
