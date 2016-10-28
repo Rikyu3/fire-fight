@@ -9,18 +9,25 @@ window.onload = function() {
   var cell = 32;
   var labelX = 207;
   var knightInitHp = 9999;
+  var kakusu = 360;
+  var tairyoku = 500;
 
-
-  game.preload("chara5.png");
+  game.preload("end.png");
   game.preload("map0.png");
   game.preload("map1.png");
+  game.preload(['icon0.png']);
+  game.preload(['chara1.png']);
+  game.preload("chara5.png");
   game.preload("chara6.png");
   game.preload("chara7.png");
-  game.preload("end.png");
-  game.preload(['chara1.png','icon0.png','music2.mp3','sword.mp3','break.mp3']);
-  game.preload(['break2.mp3','beam.mp3','kowai.mp3','sword2.mp3'])
-  game.preload("icon0.png")
-
+  game.preload(['beam.mp3']);
+  game.preload(['kowai.mp3']);
+  game.preload(['music.mp3'])
+  game.preload(['music2.mp3']);
+  game.preload(['sword.mp3']);
+  game.preload(['sword2.mp3']);
+  game.preload(['break.mp3']);
+  game.preload(['break2.mp3']);
 
 
   game.onload = function() {
@@ -126,9 +133,9 @@ window.onload = function() {
           [194,194,194,243,244,245,194,194,194,194,194,243,244,245,194,194,194,194,194,194],
           [194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194],
           [194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194,194],
-          [194,194,194,194,211,212,213,194,194,194,194,194,194,194,194,194,194,194,194,194],
-          [194,194,194,194,227,228,229,194,194,194,194,194,194,194,194,194,194,194,195,194],
-          [194,194,194,195,243,244,245,194,194,194,195,194,194,194,194,194,194,194,194,194],
+          [194,194,194,194,211,212,213,194,194,194,194,194,194,194,194,194,194,194,195,195],
+          [194,194,194,194,227,228,229,194,194,194,194,194,194,194,194,194,194,194,195,195],
+          [194,194,194,195,243,244,245,194,194,194,195,194,194,194,194,194,194,194,195,195],
         ]
 
         map2.loadData(mapArray2);
@@ -151,8 +158,8 @@ window.onload = function() {
           [0,0,0,1,1,1,0,0,0,0,0,1,1,1,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-          [0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
-          [0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0]
+          [0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1],
+          [0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1]
         ]
 
         mapArray3 = [
@@ -348,6 +355,10 @@ window.onload = function() {
             if(game.input.enter){
               if(this.hp == 0){
                 this.visible = false;  //プレイヤーを非表示にする
+                this.x = kakusu;
+                this.y = kakusu;
+                //console.log(this.x);
+                //console.log(this.y);
                 var sound4 = game.assets['break.mp3'].clone();
                 sound4.play();
               }
@@ -473,6 +484,10 @@ window.onload = function() {
               if(game.input.enter){
                 if(this.hp == 0){
                   this.visible = false;  //プレイヤーを非表示にする
+                  this.x = kakusu;
+                  this.y = kakusu;
+                  //console.log(this.x);
+                  //console.log(this.y);
                   var sound4 = game.assets['break.mp3'].clone();
                   sound4.play();
                 }
@@ -536,6 +551,10 @@ window.onload = function() {
               if(game.input.enter){
                 if(this.hp == 0){
                   this.visible = false;　//プレイヤーを非表示にする　
+                  this.x = kakusu;
+                  this.y = kakusu;
+                  //console.log(this.x);
+                  //console.log(this.y);
                   var sound5 = game.assets['break2.mp3'].clone();
                   sound5.play();
                 }
@@ -611,18 +630,20 @@ window.onload = function() {
         aitem1.image = game.assets["icon0.png"];
         aitem1.x = 63;
         aitem1.y = 252;
-        aitem1.hp = 800;
+        aitem1.hp = tairyoku;
         aitem1.frame = 11;
         game.rootScene.addChild(aitem1);
         aitem1.addEventListener("enterframe", function() {
           //  もし、いまいるブロックが19なら、再生する
            if(this.intersect(knight)) {  //プレイヤーが敵と衝突しているかを判定
-
              //console.log(this.visible);
              //console.log(this.hp);
-
                  if(this.hp == 0){
                    this.visible = false;  //プレイヤーを非表示にする
+                   this.x = kakusu;
+                   this.y = kakusu;
+                   //console.log(this.x);
+                   //console.log(this.y);
                  }
                  if(this.hp>0){
                     game.assets['beam.mp3'].play();
@@ -640,7 +661,7 @@ window.onload = function() {
         aitem2.image = game.assets["icon0.png"];
         aitem2.x = 63;
         aitem2.y = 271;
-        aitem2.hp = 800;
+        aitem2.hp = tairyoku;
         aitem2.frame = 11;
         game.rootScene.addChild(aitem2);
         aitem2.addEventListener("enterframe", function() {
@@ -648,11 +669,14 @@ window.onload = function() {
            if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
 
              //console.log(this.visible);  console.logはconsole画面でその通り実行されているかを観れる
-
              //console.log(this.hp);
 
                  if(this.hp == 0){
                    this.visible = false;  //プレイヤーを非表示にする
+                   this.x = kakusu;
+                   this.y = kakusu;
+                   //console.log(this.x);
+                   //console.log(this.y);
                  }
                  if(this.hp>0){
                    var sound3 = game.assets['beam.mp3'].clone();
