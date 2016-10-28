@@ -17,7 +17,8 @@ window.onload = function() {
   game.preload("chara6.png");
   game.preload("chara7.png");
   game.preload("end.png");
-  game.preload(['chara1.png','icon0.png','music2.mp3','kowai.mp3','beam.mp3','sword.mp3','sword2.mp3']);
+  game.preload(['chara1.png','icon0.png','music2.mp3','sword.mp3','break.mp3']);
+  game.preload(['break2.mp3','beam.mp3','kowai.mp3','sword2.mp3'])
   game.preload("icon0.png")
 
 
@@ -347,6 +348,8 @@ window.onload = function() {
             if(game.input.enter){
               if(this.hp == 0){
                 this.visible = false;  //プレイヤーを非表示にする
+                var sound4 = game.assets['break.mp3'].clone();
+                sound4.play();
               }
               if(this.hp>0){
                 this.hp = this.hp -1;
@@ -470,6 +473,8 @@ window.onload = function() {
               if(game.input.enter){
                 if(this.hp == 0){
                   this.visible = false;  //プレイヤーを非表示にする
+                  var sound4 = game.assets['break.mp3'].clone();
+                  sound4.play();
                 }
                 if(this.hp>0){
                   this.hp = this.hp -1;
@@ -531,6 +536,8 @@ window.onload = function() {
               if(game.input.enter){
                 if(this.hp == 0){
                   this.visible = false;　//プレイヤーを非表示にする　
+                  var sound5 = game.assets['break2.mp3'].clone();
+                  sound5.play();
                 }
                 if(this.hp>0){
                   this.hp = this.hp -1;
