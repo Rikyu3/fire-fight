@@ -36,9 +36,6 @@ window.onload = function() {
 
     sound1 = game.assets['music2.mp3'];
     sound1.play();
-    // sound1.loop = true;
-
-     console.log(sound1);
 
     var map = new Map(16,16);
     map.image=game.assets["map0.png"];
@@ -391,8 +388,8 @@ window.onload = function() {
       kaidan.addEventListener("enterframe", function() {
         if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
           sound1.stop();
-          var sound2 = game.assets['kowai.mp3'];
-          sound2.play();
+          sound1 = game.assets['kowai.mp3'];
+          sound1.play();
           map.collisionData = map2.collisionData
           game.rootScene.insertBefore(map2,knightHp);
           game.rootScene.removeChild(map)
@@ -761,12 +758,11 @@ window.onload = function() {
          }
        });
 
-
-
     };
 
-    game.rootScene.addEventListener(Event.ENTER_FRAME,function(){
+    game.rootScene.on("enterframe",function(){
       sound1.play();
+
     });
     game.start();
 };
