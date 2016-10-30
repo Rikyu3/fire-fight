@@ -11,6 +11,7 @@ window.onload = function() {
   var knightInitHp = 9999;
   var kakusu = 360;
   var tairyoku = 500;
+  var sound1;
 
   game.preload("end.png");
   game.preload("map0.png");
@@ -33,8 +34,11 @@ window.onload = function() {
 
   game.onload = function() {
 
-    var sound1 = game.assets['music2.mp3'].clone();
+    sound1 = game.assets['music2.mp3'];
     sound1.play();
+    // sound1.loop = true;
+
+     console.log(sound1);
 
     var map = new Map(16,16);
     map.image=game.assets["map0.png"];
@@ -379,7 +383,6 @@ window.onload = function() {
         }
       });
       var kaidan = new Sprite(16,16);
-      var sound2 = game.assets['kowai.mp3'].clone();
       kaidan.image = game.assets["map0.png"];
       kaidan.frame = 14;
       kaidan.x = 32;
@@ -388,17 +391,7 @@ window.onload = function() {
       kaidan.addEventListener("enterframe", function() {
         if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
           sound1.stop();
-          if(slimehp>0){
-            slime.x = 1;
-            slime.y = 360;
-          }else if (slime2hp>0) {
-            slime2.x = 360;
-            slime2.y = 1;
-          }else if (darkknighthp>0) {
-            darkknight.x = 1;
-            darkknight.y = 1;
-          }
-          var sound2 = game.assets['kowai.mp3'].clone();
+          var sound2 = game.assets['kowai.mp3'];
           sound2.play();
           map.collisionData = map2.collisionData
           game.rootScene.insertBefore(map2,knightHp);
@@ -771,5 +764,9 @@ window.onload = function() {
 
 
     };
+
+    game.rootScene.addEventListener(Event.ENTER_FRAME,function(){
+      sound1.play();
+    });
     game.start();
 };
