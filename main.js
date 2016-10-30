@@ -14,8 +14,7 @@ window.onload = function() {
   var sound1;
 
   game.preload("end.png");
-  game.preload("map0.png");
-  game.preload("map1.png");
+  game.preload("map0.png"); game.preload("map1.png");
   game.preload("map2.png");
   game.preload(['icon0.png']);
   game.preload(['chara1.png']);
@@ -36,7 +35,11 @@ window.onload = function() {
 
     sound1 = game.assets['music2.mp3'];
     sound1.play();
-    sound1._element.loop = true;
+    if(location.protocol === ":file") {
+        sound1.src.loop = true;
+    } else {
+        sound1._element.loop = true;
+    }
 
     var map = new Map(16,16);
     map.image=game.assets["map0.png"];
@@ -749,10 +752,7 @@ window.onload = function() {
            //game.rootScene.removeChild(slime)
            //game.rootScene.removeChild(slime2)
            //game.rootScene.removeChild(darkknight)
-           //game.rootScene.removeChild(slimehp)
-           //game.rootScene.removeChild(slimeredhp)
-           //game.rootScene.removeChild(darkknighthp)
-           //game.rootScene.removeChild(aitem1)
+           //game.rootScene.removeChild(slimehp) //game.rootScene.removeChild(slimeredhp) //game.rootScene.removeChild(darkknighthp) //game.rootScene.removeChild(aitem1)
            //game.rootScene.removeChild(aitem2)
            //game.rootScene.removeChild(aitem3)
            //game.rootScene.removeChild(aitem4)
