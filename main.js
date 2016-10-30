@@ -15,6 +15,7 @@ window.onload = function() {
   game.preload("end.png");
   game.preload("map0.png");
   game.preload("map1.png");
+  game.preload("map2.png");
   game.preload(['icon0.png']);
   game.preload(['chara1.png']);
   game.preload("chara5.png");
@@ -31,6 +32,7 @@ window.onload = function() {
 
 
   game.onload = function() {
+
     var sound1 = game.assets['music2.mp3'].clone();
     sound1.play();
 
@@ -211,6 +213,7 @@ window.onload = function() {
       ]
 
 
+
       end = new Sprite(189, 97);
       end.image = game.assets["end.png"];
       end.x = (game.width-end.width)/2;
@@ -385,6 +388,16 @@ window.onload = function() {
       kaidan.addEventListener("enterframe", function() {
         if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
           sound1.stop();
+          if(slimehp>0){
+            slime.x = 1;
+            slime.y = 360;
+          }else if (slime2hp>0) {
+            slime2.x = 360;
+            slime2.y = 1;
+          }else if (darkknighthp>0) {
+            darkknight.x = 1;
+            darkknight.y = 1;
+          }
           var sound2 = game.assets['kowai.mp3'].clone();
           sound2.play();
           map.collisionData = map2.collisionData
@@ -403,7 +416,6 @@ window.onload = function() {
           //game.rootScene.removeChild(aitem3)
           //game.rootScene.removeChild(aitem4)
           //game.rrotScene.removeChild(house)
-
         }
       });
 
@@ -730,31 +742,31 @@ window.onload = function() {
 
 
         var house = new Sprite(16,16);
-        house.image = game.assets["map0.png"];
-        house.frame = 21;
-        house.x = 20;
-        house.y = 20;
-        game.rootScene.addChild(house)
-        kaidan.addEventListener("enterframe", function() {
-          if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
-            sound1.stop();
-            map.collisionData = map3.collisionData
-            game.rootScene.insertBefore(map4,knightHp);
-            game.rootScene.removeChild(map)
-            game.rootScene.removeChild(house)
-            //game.rootScene.removeChild(slime4)
-            //game.rootScene.removeChild(slime)
-            //game.rootScene.removeChild(slime2)
-            //game.rootScene.removeChild(darkknight)
-            //game.rootScene.removeChild(slimehp)
-            //game.rootScene.removeChild(slimeredhp)
-            //game.rootScene.removeChild(darkknighthp)
-            //game.rootScene.removeChild(aitem1)
-            //game.rootScene.removeChild(aitem2)
-            //game.rootScene.removeChild(aitem3)
-            //game.rootScene.removeChild(aitem4)
-          }
-        });
+       house.image = game.assets["map0.png"];
+       house.frame = 21;
+       house.x = 20;
+       house.y = 20;
+       game.rootScene.addChild(house)
+       kaidan.addEventListener("enterframe", function() {
+         if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
+           sound1.stop();
+           map.collisionData = map3.collisionData
+           game.rootScene.insertBefore(map4,knightHp);
+           game.rootScene.removeChild(map)
+           game.rootScene.removeChild(house)
+           //game.rootScene.removeChild(slime4)
+           //game.rootScene.removeChild(slime)
+           //game.rootScene.removeChild(slime2)
+           //game.rootScene.removeChild(darkknight)
+           //game.rootScene.removeChild(slimehp)
+           //game.rootScene.removeChild(slimeredhp)
+           //game.rootScene.removeChild(darkknighthp)
+           //game.rootScene.removeChild(aitem1)
+           //game.rootScene.removeChild(aitem2)
+           //game.rootScene.removeChild(aitem3)
+           //game.rootScene.removeChild(aitem4)
+         }
+       });
 
 
 
