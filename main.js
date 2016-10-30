@@ -302,7 +302,6 @@ window.onload = function() {
             }
           }
 
-        console.log(forward);
         // 攻撃部分
         if (game.input.enter){
           if(forward == 'right'){
@@ -365,8 +364,6 @@ window.onload = function() {
                 this.visible = false;  //プレイヤーを非表示にする
                 this.x = kakusu;
                 this.y = kakusu;
-                //console.log(this.x);
-                //console.log(this.y);
                 var sound4 = game.assets['break.mp3'].clone();
                 sound4.play();
               }
@@ -492,8 +489,6 @@ window.onload = function() {
                   this.visible = false;  //プレイヤーを非表示にする
                   this.x = kakusu;
                   this.y = kakusu;
-                  //console.log(this.x);
-                  //console.log(this.y);
                   var sound4 = game.assets['break.mp3'].clone();
                   sound4.play();
                 }
@@ -559,8 +554,6 @@ window.onload = function() {
                   this.visible = false;　//プレイヤーを非表示にする　
                   this.x = kakusu;
                   this.y = kakusu;
-                  //console.log(this.x);
-                  //console.log(this.y);
                   var sound5 = game.assets['break2.mp3'].clone();
                   sound5.play();
                 }
@@ -642,14 +635,10 @@ window.onload = function() {
         aitem1.addEventListener("enterframe", function() {
           //  もし、いまいるブロックが19なら、再生する
            if(this.intersect(knight)) {  //プレイヤーが敵と衝突しているかを判定
-             //console.log(this.visible);
-             //console.log(this.hp);
                  if(this.hp == 0){
                    this.visible = false;  //プレイヤーを非表示にする
                    this.x = kakusu;
                    this.y = kakusu;
-                   //console.log(this.x);
-                   //console.log(this.y);
                  }
                  if(this.hp>0){
                     game.assets['beam.mp3'].play();
@@ -674,15 +663,10 @@ window.onload = function() {
 
            if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
 
-             //console.log(this.visible);  console.logはconsole画面でその通り実行されているかを観れる
-             //console.log(this.hp);
-
                  if(this.hp == 0){
                    this.visible = false;  //プレイヤーを非表示にする
                    this.x = kakusu;
                    this.y = kakusu;
-                   //console.log(this.x);
-                   //console.log(this.y);
                  }
                  if(this.hp>0){
                    var sound3 = game.assets['beam.mp3'].clone();
@@ -714,10 +698,6 @@ window.onload = function() {
         aitem4.addEventListener("enterframe", function() {
           //  もし、いまいるブロックが19なら、再生する
            if(this.intersect(knight)) {  //プレイヤーが敵と衝突しているかを判定
-
-             //console.log(this.visible);
-
-             //console.log(this.hp);
 
                  if(this.hp == 0){
                    this.visible = false;  //プレイヤーを非表示にする
