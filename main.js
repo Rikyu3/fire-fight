@@ -36,6 +36,7 @@ window.onload = function() {
 
     sound1 = game.assets['music2.mp3'];
     sound1.play();
+    sound1._element.loop = true;
 
     var map = new Map(16,16);
     map.image=game.assets["map0.png"];
@@ -760,9 +761,5 @@ window.onload = function() {
 
     };
 
-    game.rootScene.on("enterframe",function(){
-      sound1.play();
-
-    });
     game.start();
 };
