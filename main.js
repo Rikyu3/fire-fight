@@ -35,10 +35,11 @@ window.onload = function() {
 
     sound1 = game.assets['music2.mp3'];
     sound1.play();
-    if(location.protocol === ":file") {
-        sound1.src.loop = true;
-    } else {
+    console.log(location.protocol);
+    if(location.protocol === "file:") {
         sound1._element.loop = true;
+    } else {
+        sound1.src.loop = true;
     }
 
     var map = new Map(16,16);
