@@ -14,8 +14,7 @@ window.onload = function() {
   var sound1;
 
   game.preload("end.png");
-  game.preload("map0.png");
-  game.preload("map1.png");
+  game.preload("map0.png"); game.preload("map1.png");
   game.preload("map2.png");
   game.preload(['icon0.png']);
   game.preload(['chara1.png']);
@@ -36,6 +35,12 @@ window.onload = function() {
 
     sound1 = game.assets['music2.mp3'];
     sound1.play();
+    console.log(location.protocol);
+    if(location.protocol === "file:") {
+        sound1._element.loop = true;
+    } else {
+        sound1.src.loop = true;
+    }
 
     var map = new Map(16,16);
     map.image=game.assets["map0.png"];
@@ -298,7 +303,6 @@ window.onload = function() {
             }
           }
 
-        console.log(forward);
         // 攻撃部分
         if (game.input.enter){
           if(forward == 'right'){
@@ -361,8 +365,6 @@ window.onload = function() {
                 this.visible = false;  //プレイヤーを非表示にする
                 this.x = kakusu;
                 this.y = kakusu;
-                //console.log(this.x);
-                //console.log(this.y);
                 var sound4 = game.assets['break.mp3'].clone();
                 sound4.play();
               }
@@ -488,8 +490,6 @@ window.onload = function() {
                   this.visible = false;  //プレイヤーを非表示にする
                   this.x = kakusu;
                   this.y = kakusu;
-                  //console.log(this.x);
-                  //console.log(this.y);
                   var sound4 = game.assets['break.mp3'].clone();
                   sound4.play();
                 }
@@ -555,8 +555,6 @@ window.onload = function() {
                   this.visible = false;　//プレイヤーを非表示にする　
                   this.x = kakusu;
                   this.y = kakusu;
-                  //console.log(this.x);
-                  //console.log(this.y);
                   var sound5 = game.assets['break2.mp3'].clone();
                   sound5.play();
                 }
@@ -638,14 +636,10 @@ window.onload = function() {
         aitem1.addEventListener("enterframe", function() {
           //  もし、いまいるブロックが19なら、再生する
            if(this.intersect(knight)) {  //プレイヤーが敵と衝突しているかを判定
-             //console.log(this.visible);
-             //console.log(this.hp);
                  if(this.hp == 0){
                    this.visible = false;  //プレイヤーを非表示にする
                    this.x = kakusu;
                    this.y = kakusu;
-                   //console.log(this.x);
-                   //console.log(this.y);
                  }
                  if(this.hp>0){
                     game.assets['beam.mp3'].play();
@@ -670,15 +664,10 @@ window.onload = function() {
 
            if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
 
-             //console.log(this.visible);  console.logはconsole画面でその通り実行されているかを観れる
-             //console.log(this.hp);
-
                  if(this.hp == 0){
                    this.visible = false;  //プレイヤーを非表示にする
                    this.x = kakusu;
                    this.y = kakusu;
-                   //console.log(this.x);
-                   //console.log(this.y);
                  }
                  if(this.hp>0){
                    var sound3 = game.assets['beam.mp3'].clone();
@@ -710,10 +699,6 @@ window.onload = function() {
         aitem4.addEventListener("enterframe", function() {
           //  もし、いまいるブロックが19なら、再生する
            if(this.intersect(knight)) {  //プレイヤーが敵と衝突しているかを判定
-
-             //console.log(this.visible);
-
-             //console.log(this.hp);
 
                  if(this.hp == 0){
                    this.visible = false;  //プレイヤーを非表示にする
@@ -748,10 +733,7 @@ window.onload = function() {
            //game.rootScene.removeChild(slime)
            //game.rootScene.removeChild(slime2)
            //game.rootScene.removeChild(darkknight)
-           //game.rootScene.removeChild(slimehp)
-           //game.rootScene.removeChild(slimeredhp)
-           //game.rootScene.removeChild(darkknighthp)
-           //game.rootScene.removeChild(aitem1)
+           //game.rootScene.removeChild(slimehp) //game.rootScene.removeChild(slimeredhp) //game.rootScene.removeChild(darkknighthp) //game.rootScene.removeChild(aitem1)
            //game.rootScene.removeChild(aitem2)
            //game.rootScene.removeChild(aitem3)
            //game.rootScene.removeChild(aitem4)
@@ -760,9 +742,5 @@ window.onload = function() {
 
     };
 
-    game.rootScene.on("enterframe",function(){
-      sound1.play();
-
-    });
     game.start();
 };
