@@ -742,12 +742,6 @@ window.onload = function() {
 
     };
 
-<<<<<<< Updated upstream
-=======
-    game.rootScene.on("enterframe",function(){
-    sound1.play();
 
-    });
->>>>>>> Stashed changes
     game.start();
 };
