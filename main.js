@@ -27,6 +27,7 @@ window.onload = function() {
   game.preload(['music2.mp3']);
   game.preload(['sword.mp3']);
   game.preload(['sword2.mp3']);
+  game.preload(['sword3.mp3']);
   game.preload(['break.mp3']);
   game.preload(['break2.mp3']);
 
@@ -361,6 +362,8 @@ window.onload = function() {
         }
         if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
             if(game.input.enter){
+              var sound6 = game.assets['sword3.mp3'].clone();
+              sound6.play();
               if(this.hp == 0){
                 this.visible = false;  //プレイヤーを非表示にする
                 this.x = kakusu;
@@ -486,6 +489,8 @@ window.onload = function() {
 
           if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
               if(game.input.enter){
+                var sound6 = game.assets['sword3.mp3'].clone();
+                sound6.play();
                 if(this.hp == 0){
                   this.visible = false;  //プレイヤーを非表示にする
                   this.x = kakusu;
@@ -551,6 +556,8 @@ window.onload = function() {
 
           if(this.intersect(knight)){ 　//プレイヤーが敵と衝突しているかを判定
               if(game.input.enter){
+                var sound6 = game.assets['sword3.mp3'].clone();
+                sound6.play();
                 if(this.hp == 0){
                   this.visible = false;　//プレイヤーを非表示にする　
                   this.x = kakusu;
@@ -606,6 +613,8 @@ window.onload = function() {
 
            //if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
             //   if(game.input.enter){
+            //var sound6 = game.assets['sword3.mp3'].clone();
+            //sound6.play();
               //   if(this.hp == 0){
                 //   this.visible = false;  //プレイヤーを非表示にする
                  //}
