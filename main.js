@@ -413,7 +413,12 @@ window.onload = function() {
           //game.rootScene.removeChild(aitem4)
           //game.rrotScene.removeChild(house)
           //game.rootScene.removeChild(kaidan2)
-
+          slime.x = 1;
+          slime.y = 1;
+          slime2.x = 1;
+          slime2.y = 240;
+          darkknight.x = 120;
+          darkknight.y = 240;
         }
       });
 
