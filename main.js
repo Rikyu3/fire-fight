@@ -14,6 +14,7 @@ window.onload = function() {
   var sound1;
 
   game.preload("end.png");
+  game.preload("pad.png");
   game.preload("map0.png"); game.preload("map1.png");
   game.preload("map2.png");
   game.preload(['icon0.png']);
@@ -30,6 +31,8 @@ window.onload = function() {
   game.preload(['sword3.mp3']);
   game.preload(['break.mp3']);
   game.preload(['break2.mp3']);
+  game.preload('player.png', 'pad.png');
+
 
 
   game.onload = function() {
@@ -219,6 +222,17 @@ window.onload = function() {
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
       ]
 
+      // バーチャルキーパッドを生成
+	    var pad = new Pad();
+	    pad.moveTo(0, 220);
+	    scene.addChild(pad);
+      player.addEventListener('enterframe', function(e) {
+			if (game.input.left) this.x -= 1.0;
+			if (game.input.right) this.x += 1.0;
+			if (game.input.up) this.y -= 1.0;
+			if (game.input.down) this.y += 1.0;
+		  });
+
 
 
       end = new Sprite(189, 97);
@@ -227,8 +241,6 @@ window.onload = function() {
       end.y = (game.height-end.height)/2;
       game.rootScene.addChild(end);
       end.visible = false;  //プレイヤーを非表示にする
-
-
 
 
       // 文字表示
@@ -723,7 +735,7 @@ window.onload = function() {
                  if(this.hp>0){
                     game.assets['beam.mp3'].play();
                    this.hp = this.hp -1;
-          //  s       aitem1hp.text = "aitem1hp hp  " + aitem1hp.hp;
+                   //  aitem1hp.text = "aitem1hp hp  " + aitem1hp.hp;
                     if(knight.hp>0){
                        knight.hp = knight.hp -1;
                        knightHp.text = "knight hp " + knight.hp;
@@ -733,7 +745,7 @@ window.onload = function() {
         });
 
 
-        var house = new Sprite(16,16);
+       var house = new Sprite(16,16);
        house.image = game.assets["map0.png"];
        house.frame = 21;
        house.x = 20;
