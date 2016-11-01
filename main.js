@@ -397,6 +397,7 @@ window.onload = function() {
           sound1.play();
           map.collisionData = map2.collisionData
           game.rootScene.insertBefore(map2,knightHp);
+          game.rootScene.removeChild(kaidan)
           game.rootScene.removeChild(map)
           game.rootScene.removeChild(aitem3)
           //game.rootScene.removeChild(slime4)
@@ -411,6 +412,8 @@ window.onload = function() {
           //game.rootScene.removeChild(aitem3)
           //game.rootScene.removeChild(aitem4)
           //game.rrotScene.removeChild(house)
+          //game.rootScene.removeChild(kaidan2)
+
         }
       });
 
