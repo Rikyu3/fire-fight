@@ -36,7 +36,7 @@ window.onload = function() {
 
     sound1 = game.assets['music2.mp3'];
     sound1.play();
-    console.log(location.protocol);
+    //console.log(location.protocol);
     if(location.protocol === "file:") {
         sound1._element.loop = true;
     } else {
