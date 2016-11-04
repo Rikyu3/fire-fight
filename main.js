@@ -13,27 +13,34 @@ window.onload = function() {
   var tairyoku = 500;
   var sound1;
 
-  game.preload("end.png");
-  game.preload("pad.png");
-  game.preload("map0.png"); game.preload("map1.png");
-  game.preload("map2.png");
-  game.preload(['icon0.png']);
-  game.preload(['chara1.png']);
-  game.preload("chara5.png");
-  game.preload("chara6.png");
-  game.preload("chara7.png");
-  game.preload(['beam.mp3']);
-  game.preload(['kowai.mp3']);
-  game.preload(['music.mp3'])
-  game.preload(['music2.mp3']);
-  game.preload(['sword.mp3']);
-  game.preload(['sword2.mp3']);
-  game.preload(['sword3.mp3']);
-  game.preload(['break.mp3']);
-  game.preload(['break2.mp3']);
-  game.preload('player.png', 'pad.png');
+  // 画像のpreload
+  game.preload([
+    "end.png",
+    "pad.png",
+    "map0.png",
+    "map1.png",
+    "map2.png",
+    'icon0.png',
+    'chara1.png',
+    "chara5.png",
+    "chara6.png",
+    "chara7.png",
+//    'player.png',
+    'pad.png'
+  ]);
 
-
+  // SE,BGMのpreload
+  game.preload([
+    'beam.mp3',
+    'kowai.mp3',
+    'music.mp3',
+    'music2.mp3',
+    'sword.mp3',
+    'sword2.mp3',
+    'sword3.mp3',
+    'break.mp3',
+    'break2.mp3'
+  ]);
 
   game.onload = function() {
 
@@ -225,8 +232,8 @@ window.onload = function() {
       // バーチャルキーパッドを生成
 	    var pad = new Pad();
 	    pad.moveTo(0, 220);
-	    scene.addChild(pad);
-      player.addEventListener('enterframe', function(e) {
+	    game.rootScene.addChild(pad);
+      game.rootScene.addEventListener('enterframe', function(e) {
 			if (game.input.left) this.x -= 1.0;
 			if (game.input.right) this.x += 1.0;
 			if (game.input.up) this.y -= 1.0;
