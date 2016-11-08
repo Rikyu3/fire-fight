@@ -16,17 +16,15 @@ window.onload = function() {
   // 画像のpreload
   game.preload([
     "end.png",
-    "pad.png",
     "map0.png",
     "map1.png",
     "map2.png",
-    'icon0.png',
-    'chara1.png',
+    "icon0.png",
+    "chara1.png",
     "chara5.png",
     "chara6.png",
     "chara7.png",
-　//    'player.png',
-    'pad.png'
+    "pad.png"
   ]);
 
 　// SE,BGMのpreload
@@ -612,62 +610,7 @@ window.onload = function() {
           }
         });
 
-        //var slime4 = new Sprite(32,32);
-        //slime4.image = game.assets["chara6.png"];
-        //slime4.x = 70;
-        //slime4.y = 60;
-        //slime4.hp = 100;
-        //game.rootScene.addChild(slime4);
-        //slime4.addEventListener("enterframe", function() {
-        //   var dx = 0;
-        //   var dy = 0;
-        //   this.frame = 3 + this.age %3;
-        //   if (this.age % 16 == 0) {
-        //     var d = Math.floor(Math.random()*4 );
-        //     if (d==0){
-        //        dy = -16;
-        //     }else if (d==1){
-        //       dx = 16;
-        //     }else if (d==2){
-        //       dy = 16;
-        //     }else if (d==3){
-        //        dx = -16;
-        //     }
-        //
-        //     var x = this.x + dx;
-        //     var y = this.y + dy;
-        //     var _x = this.x + (dx ? dx / Math.abs(dx) * (cell / 2) : 0) + (cell / 2);
-        //     var _y = this.y + (dy ? dy / Math.abs(dy) * (cell / 2) : 0) + (cell / 2);
-        //     if (x<(width-cell) && y<(height-cell) && x>0 && y>0 && !map.hitTest(_x,_y)){
-        //       this.x = x;
-        //       this.y = y;
-        //     }
-        //   }
-
-           //if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
-            //   if(game.input.enter){
-            //var sound6 = game.assets['sword3.mp3'].clone();
-            //sound6.play();
-              //   if(this.hp == 0){
-                //   this.visible = false;  //プレイヤーを非表示にする
-                 //}
-                 //if(this.hp>0){
-                   //this.hp = this.hp -1;
-          //         slime4hp.text = "slime4 hp  " + slime4.hp;
-                   //if(this.hp % 5 == 0){
-                  //  if(knight.hp>0){
-                    //   knight.hp = knight.hp -1;
-                      // knightHp.text = "knight hp " + knight.hp;
-                    // }
-                // }
-              // }
-            // }
-          // }
-        //});
-
-
-
-
+        
         var aitem1 = new Sprite(16,16);
         aitem1.image = game.assets["icon0.png"];
         aitem1.x = 63;
