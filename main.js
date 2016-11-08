@@ -240,7 +240,7 @@ window.onload = function() {
 
 
       var pad = new Sprite(32, 16);
-      pad.image = game.assets["images/pad.png"];
+      pad.image = game.assets["pad.png"];
       pad.x = game.width/2;	// X座標
       pad.y = game.height - 40;	// Y座標
       game.rootScene.addChild(pad);
@@ -436,6 +436,7 @@ window.onload = function() {
           //game.rootScene.removeChild(aitem4)
           //game.rrotScene.removeChild(house)
           //game.rootScene.removeChild(kaidan2)
+          //game.rootScene.removeChild(pad.png)
           slime.x = 1;
           slime.y = 1;
           slime2.x = 1;
