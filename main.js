@@ -13,7 +13,6 @@ window.onload = function() {
   var tairyoku = 20;
   var sound1;
 
-<<<<<<< Updated upstream
   // 画像のpreload
   game.preload([
     "end.png",
@@ -42,32 +41,6 @@ window.onload = function() {
     'break.mp3',
     'break2.mp3'
   ]);
-=======
-  game.preload("end.png");
-  //game.preload("pad.png");
-  game.preload("map0.png"); game.preload("map1.png");
-  game.preload("map2.png");
-  game.preload(['icon0.png']);
-  game.preload(['chara1.png']);
-  game.preload("chara5.png");
-  game.preload("chara6.png");
-  game.preload("chara7.png");
-  game.preload(['beam.mp3']);
-  game.preload(['kowai.mp3']);
-  game.preload(['music.mp3']);
-  game.preload(['music2.mp3']);
-  game.preload(['sword.mp3']);
-  game.preload(['sword2.mp3']);
-  game.preload(['sword3.mp3']);
-  game.preload(['break.mp3']);
-  game.preload(['break2.mp3']);
-  game.preload(['bakuhatsu.mp3']);
-
-  //game.preload('player.png', 'pad.png');
-  //game.preload("pad.png");
-
-
->>>>>>> Stashed changes
 
   game.onload = function() {
 
@@ -268,7 +241,7 @@ window.onload = function() {
 		  });
 
 
-    　var pad = new Sprite(32, 16);
+      var pad = new Sprite(32, 16);
       pad.image = game.assets["images/pad.png"];
       pad.x = game.width/2;	// X座標
       pad.y = game.height - 40;	// Y座標
