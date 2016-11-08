@@ -232,10 +232,10 @@ window.onload = function() {
 	    pad.moveTo(0, 220);
 	    game.rootScene.addChild(pad);
       game.rootScene.addEventListener('enterframe', function(e) {
-			if (game.input.left) this.x -= 1.0;
-			if (game.input.right) this.x += 1.0;
-			if (game.input.up) this.y -= 1.0;
-			if (game.input.down) this.y += 1.0;
+			if (game.input.left) knight.x -= 1.0;
+			if (game.input.right) knight.x += 1.0;
+			if (game.input.up) knight.y -= 1.0;
+			if (game.input.down) knight.y += 1.0;
 		  });
 
 
@@ -610,7 +610,7 @@ window.onload = function() {
           }
         });
 
-        
+
         var aitem1 = new Sprite(16,16);
         aitem1.image = game.assets["icon0.png"];
         aitem1.x = 63;
