@@ -231,12 +231,8 @@ window.onload = function() {
 	    var pad = new Pad();
 	    pad.moveTo(0, 220);
 	    game.rootScene.addChild(pad);
-      game.rootScene.addEventListener('enterframe', function(e) {
-			if (game.input.left) knight.x -= 1.0;
-			if (game.input.right) knight.x += 1.0;
-			if (game.input.up) knight.y -= 1.0;
-			if (game.input.down) knight.y += 1.0;
-		  });
+      //game.rootScene.addEventListener('enterframe', function(e) {
+		  //});
 
 
       var pad = new Sprite(32, 16);
@@ -268,7 +264,7 @@ window.onload = function() {
       knight.x = 0;
       knight.y = 0;
       knight.frame = 18;
-      knight.speed = 8;
+      knight.speed = 4;
       knight.hp = knightInitHp;
       game.rootScene.addChild(knight);
       game.keybind(13, 'enter');
