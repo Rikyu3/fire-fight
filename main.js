@@ -234,6 +234,16 @@ window.onload = function() {
       //game.rootScene.addEventListener('enterframe', function(e) {
 		  //});
 
+      //ボタンの作成
+      game.addButtons = function() {
+        this.buttons = {
+          a: new Button('A', 'light'),
+        };
+        this.buttons.a.x = 120;
+        this.buttons.a.y = 280;
+        this.rootScene.addChild(this.buttons.a);
+        this.keybind( 'A'.charCodeAt(0), 'a' );
+      }
 
       var pad = new Sprite(32, 16);
       pad.image = game.assets["pad.png"];
