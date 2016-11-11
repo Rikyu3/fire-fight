@@ -289,6 +289,7 @@ window.onload = function() {
           end.visible = true;  //ゲームオーバー
         }
         if (game.input.right) {
+          this.frame = 22;
           if((map.hitTest(this.x + cell - 8 , this.y + cell - 8) == false)&&
               (map.hitTest(this.x + cell - 8 , this.y + cell - 25) == false)&&
               (map.hitTest(this.x + cell - 8 , this.y + cell - 16) == false)){
@@ -299,6 +300,7 @@ window.onload = function() {
               }
             }
           } else if (game.input.left) {
+            this.frame = 11;
             if((map.hitTest(this.x - this.speed , this.y + cell - 8) == false)&&
               (map.hitTest(this.x - this.speed  , this.y + cell - 25) == false)&&
               (map.hitTest(this.x - this.speed  , this.y + cell - 16) == false)){
@@ -312,6 +314,7 @@ window.onload = function() {
           //else if( (game.input.down) &&
           //(map.hitTest(this.x + cell / 2, this.y + cell ) == false) ){}
           else if (game.input.down){
+            this.frame = 0;
             //if(map.hitTest(this.x - cell / 2, this.y + cell ) == false){}
             if((map.hitTest(this.x + 8, this.y + cell ) == false)&&
                (map.hitTest(this.x + cell / 2, this.y + cell ) == false)){
@@ -323,6 +326,7 @@ window.onload = function() {
             }
           }
           else if (game.input.up) {
+            this.frame = 28;
             if((map.hitTest(this.x + 8, this.y  - this.speed ) == false)&&
               (map.hitTest(this.x + cell / 2, this.y  - this.speed ) == false)){
               if(this.y > 0){
