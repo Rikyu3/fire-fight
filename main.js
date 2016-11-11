@@ -341,21 +341,12 @@ window.onload = function() {
         if (game.input.enter){
           if(forward == 'right'){
             this.frame = 23 + this.age %4;
-            //this.frame = 22;
-            for( i=0; i<10; i++) {
-            setTimeout("alert('this.frame = 22;')",2000);
-          }
-          alert("waiting");
           }else if(forward == 'left'){
-            this.frame = 11;
             this.frame = 14 + this.age %4;
-            //this.frame = 11;
           }else if(forward == 'down'){
             this.frame = 5 + this.age %4;
-            //this.frame = 0;
           }else if (forward == 'up') {
            this.frame = 32 + this.age %4;
-           //this.frame = 28;
           }
           var sound3 = game.assets['sword2.mp3'].clone();
           sound3.play();
