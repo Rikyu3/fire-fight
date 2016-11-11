@@ -94,8 +94,8 @@ window.onload = function() {
         [23,0,0,0,23,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [23,0,0,0,23,0,0,0,0,23,23,23,23,24,24,23,23,23,23,23],
         [23,0,0,0,23,0,0,0,0,23,18,18,18,18,18,18,18,18,18,23],
-        [23,0,0,0,19,0,0,0,0,23,18,18,18,18,18,18,18,18,18,23],
-        [23,0,0,0,19,0,0,0,0,23,18,18,18,18,18,18,18,18,18,23],
+        [23,0,0,0,0,0,0,0,0,11,18,18,18,18,18,18,18,18,18,23],
+        [23,0,0,0,0,0,0,0,0,11,18,18,18,18,18,18,18,18,18,23],
         [23,0,0,0,23,0,0,0,0,23,18,18,18,18,18,18,18,18,18,23],
         [23,23,23,23,23,0,0,0,0,23,18,25,18,25,18,25,18,25,18,23]
       ]
@@ -119,10 +119,10 @@ window.onload = function() {
         [1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [1,0,0,0,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1],
         [1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1],
-        [1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1],
-        [1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
         [1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1],
-        [1,1,1,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1]
+        [1,1,1,1,1,0,0,0,0,1,0,1,0,1,1,1,0,1,0,1]
       ]
 
       game.rootScene.addChild(map);
@@ -341,12 +341,21 @@ window.onload = function() {
         if (game.input.enter){
           if(forward == 'right'){
             this.frame = 23 + this.age %4;
+            //this.frame = 22;
+            for( i=0; i<10; i++) {
+            setTimeout("alert('this.frame = 22;')",2000);
+          }
+          alert("waiting");
           }else if(forward == 'left'){
+            this.frame = 11;
             this.frame = 14 + this.age %4;
+            //this.frame = 11;
           }else if(forward == 'down'){
             this.frame = 5 + this.age %4;
+            //this.frame = 0;
           }else if (forward == 'up') {
            this.frame = 32 + this.age %4;
+           //this.frame = 28;
           }
           var sound3 = game.assets['sword2.mp3'].clone();
           sound3.play();
@@ -356,7 +365,7 @@ window.onload = function() {
       // 文字表示
       slimehp = new Label();
       slimehp.font = "10px gothic";
-      slimehp.text = "slime green hp 120";
+      slimehp.text = "slime green hp 70";
       slimehp.x = labelX;
       slimehp.y = 35;
       game.rootScene.addChild(slimehp);
@@ -420,8 +429,8 @@ window.onload = function() {
       var kaidan = new Sprite(16,16);
       kaidan.image = game.assets["map0.png"];
       kaidan.frame = 14;
-      kaidan.x = 32;
-      kaidan.y = 212;
+      kaidan.x = 302;
+      kaidan.y = 1;
       game.rootScene.addChild(kaidan)
       kaidan.addEventListener("enterframe", function() {
         if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
@@ -568,7 +577,7 @@ window.onload = function() {
         darkknight.image = game.assets["chara7.png"];
         darkknight.x = 55;
         darkknight.y = 55;
-        darkknight.hp = 200;
+        darkknight.hp = 1;
         game.rootScene.addChild(darkknight);
         darkknight.addEventListener("enterframe", function() {
           var dx = 0;
@@ -622,10 +631,45 @@ window.onload = function() {
         });
 
 
+        var darkknight2 = new Sprite(32,32);
+        darkknight2.image = game.assets["chara7.png"];
+        darkknight2.x = 216;
+        darkknight2.y = 293;
+        darkknight2.hp = 250;
+        game.rootScene.addChild(darkknight2);
+        darkknight2.addEventListener("enterframe", function() {
+          if(this.intersect(knight)){ 　//プレイヤーが敵と衝突しているかを判定
+              if(game.input.enter){
+                var sound6 = game.assets['sword3.mp3'].clone();
+                sound6.play();
+                if(this.hp == 0){
+                  this.visible = false;　//プレイヤーを非表示にする　
+                  this.x = kakusu;
+                  this.y = kakusu;
+                  var sound5 = game.assets['break2.mp3'].clone();
+                  sound5.play();
+                  kaidan.x = 32;
+                  kaidan.y = 211;
+                }
+                if(this.hp>0){
+                  this.hp = this.hp -1;
+                  if(this.hp % 5 == 0){
+                    if(knight.hp>0){
+                      knight.hp = knight.hp -1;
+                      knightHp.text = "knight hp " + knight.hp;
+                    }
+                }
+                }
+              }
+          }
+        });
+
+
+
         var aitem1 = new Sprite(16,16);
         aitem1.image = game.assets["icon0.png"];
-        aitem1.x = 63;
-        aitem1.y = 252;
+        aitem1.x = 64;
+        aitem1.y = 256;
         aitem1.hp = tairyoku;
         aitem1.frame = 11;
         game.rootScene.addChild(aitem1);
@@ -654,8 +698,8 @@ window.onload = function() {
 
         var aitem2 = new Sprite(16,16);
         aitem2.image = game.assets["icon0.png"];
-        aitem2.x = 63;
-        aitem2.y = 271;
+        aitem2.x = 64;
+        aitem2.y = 274;
         aitem2.hp = tairyoku;
         aitem2.frame = 11;
         game.rootScene.addChild(aitem2);
