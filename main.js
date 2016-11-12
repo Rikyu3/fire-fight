@@ -39,7 +39,8 @@ window.onload = function() {
     'sword2.mp3',
     'sword3.mp3',
     'break.mp3',
-    'break2.mp3'
+    'break2.mp3',
+    'hikari.mp3'
   ]);
 
   game.onload = function() {
@@ -437,6 +438,7 @@ window.onload = function() {
           game.rootScene.removeChild(kaidan)
           game.rootScene.removeChild(map)
           game.rootScene.removeChild(mitchi)
+          game.rootScene.removeChild(megami)
           //game.rootScene.removeChild(slime4)
           //game.rootScene.removeChild(slime)
           //game.rootScene.removeChild(slime2)
@@ -448,7 +450,7 @@ window.onload = function() {
           //game.rootScene.removeChild(aitem2)
           //game.rootScene.removeChild(mitchi)
           //game.rootScene.removeChild(megami)
-          //game.rrotScene.removeChild(house)
+          //game.rrotScene.removeChild(yuka)
           //game.rootScene.removeChild(kaidan2)
           //game.rootScene.removeChild(pad.png)
           slime.x = 1;
@@ -484,7 +486,7 @@ window.onload = function() {
             //game.rootScene.removeChild(aitem1)
             //game.rootScene.removeChild(aitem2)
             //game.rootScene.removeChild(megami)
-            //game.rrotScene.removeChild(house)
+            //game.rrotScene.removeChild(yuka)
 
           }
         });
@@ -728,7 +730,64 @@ window.onload = function() {
         game.rootScene.addChild(mitchi);
         mitchi.addEventListener("enterframe", function() {
           if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
+            sound1.stop();
+            sound2 = game.assets['hikari.mp3'];
+            sound2.play();
             game.rootScene.addChild(megami);
+            knight.image = game.assets["chara1.png"];
+            knight.frame = 0;
+            if(knight.hp == 0){
+              knight.visible = false;  //プレイヤーを非表示にする
+              end.visible = true;  //ゲームオーバー
+            }
+            if (game.input.right) {
+              knight.frame = 0;
+              if((map.hitTest(knight.x + cell - 8 , knight.y + cell - 8) == false)&&
+                  (map.hitTest(knight.x + cell - 8 , knight.y + cell - 25) == false)&&
+                  (map.hitTest(knight.x + cell - 8 , knight.y + cell - 16) == false)){
+                  if(knight.x < height -32 ){
+                    knight.x += knight.speed;
+                    knight.frame = 0 + knight.age %3;
+                    forward = 'right';
+                  }
+                }
+              } else if (game.input.left) {
+                knight.frame = 0;
+                if((map.hitTest(knight.x - knight.speed , knight.y + cell - 8) == false)&&
+                  (map.hitTest(knight.x - knight.speed  , knight.y + cell - 25) == false)&&
+                  (map.hitTest(knight.x - knight.speed  , knight.y + cell - 16) == false)){
+                  if (knight.x >= 0){
+                    knight.x -= knight.speed;
+                    knight.frame = 0 + knight.age %3;
+                    forward = 'left';
+                  }
+                }
+              }
+              //else if( (game.input.down) &&
+              //(map.hitTest(this.x + cell / 2, this.y + cell ) == false) ){}
+              else if (game.input.down){
+                knight.frame = 0;
+                //if(map.hitTest(this.x - cell / 2, this.y + cell ) == false){}
+                if((map.hitTest(knight.x + 8, knight.y + cell ) == false)&&
+                   (map.hitTest(knight.x + cell / 2, knight.y + cell ) == false)){
+                  if(knight.y < height -32 ){
+                    knight.y += knight.speed;
+                    knight.frame = 0 + knight.age %3;
+                    forward ='down';
+                  }
+                }
+              }
+              else if (game.input.up) {
+                knight.frame = 0;
+                if((map.hitTest(knight.x + 8, knight.y  - knight.speed ) == false)&&
+                  (map.hitTest(knight.x + cell / 2, knight.y  - knight.speed ) == false)){
+                  if(knight.y > 0){
+                    knight.y -= knight.speed;
+                    knight.frame = 30 + knight.age %3;
+                    forward = 'up';
+                  }
+                }
+              }
           }
         });
 
@@ -738,30 +797,19 @@ window.onload = function() {
         megami.y = 245;
         megami.frame = 16;
 
-       var house = new Sprite(16,16);
-       house.image = game.assets["map0.png"];
-       house.frame = 21;
-       house.x = 20;
-       house.y = 20;
-       game.rootScene.addChild(house)
+       /*var yuka = new Sprite(16,16);
+       yuka.image = game.assets["map1.gif"];
+       yuka.frame = 322;
+       yuka.x = 124;
+       yuka.y = 250;
+       game.rootScene.addChild(yuka)
        kaidan.addEventListener("enterframe", function() {
          if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
-           sound1.stop();
-           map.collisionData = map3.collisionData
-           game.rootScene.insertBefore(map4,knightHp);
-           game.rootScene.removeChild(map)
-           game.rootScene.removeChild(house)
-           //game.rootScene.removeChild(slime4)
-           //game.rootScene.removeChild(slime)
-           //game.rootScene.removeChild(slime2)
-           //game.rootScene.removeChild(darkknight)
-           //game.rootScene.removeChild(slimehp) //game.rootScene.removeChild(slimeredhp) //game.rootScene.removeChild(darkknighthp) //game.rootScene.removeChild(aitem1)
-           //game.rootScene.removeChild(aitem2)
-           //game.rootScene.removeChild(mitchi)
-           //game.rootScene.removeChild(megami)
+           sound1.play();
+           game.rootScene.removeChild(megami)
          }
        });
-
+*/
     };
 
 
