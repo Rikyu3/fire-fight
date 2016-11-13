@@ -26,7 +26,8 @@ window.onload = function() {
     "chara5.png",
     "chara6.png",
     "chara7.png",
-    "pad.png"
+    "pad.png",
+    "button.png"
   ]);
 
 　// SE,BGMのpreload
@@ -294,16 +295,12 @@ window.onload = function() {
       //game.rootScene.addEventListener('enterframe', function(e) {
 		  //});
 
-      //ボタンの作成
-      game.addButtons = function() {
-        this.buttons = {
-          a: new Button('A', 'light'),
-        };
-        this.buttons.a.x = 120;
-        this.buttons.a.y = 280;
-        this.rootScene.addChild(this.buttons.a);
-        this.keybind( 'A'.charCodeAt(0), 'a' );
-      }
+      var button = new Sprite(50, 50);
+      button.image = game.assets["button.png"];
+      button.x = 95;
+      button.y = 260;
+      button.mode = "A";
+      game.rootScene.addChild(button);
 
       var pad = new Sprite(32, 16);
       pad.image = game.assets["pad.png"];
@@ -398,7 +395,7 @@ window.onload = function() {
           }
 
         // 攻撃部分
-        if (game.input.enter){
+        if (game.input.enter || game.input.A){
           if(forward == 'right'){
             this.frame = 23 + this.age %4;
           }else if(forward == 'left'){
