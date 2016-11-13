@@ -279,9 +279,9 @@ window.onload = function() {
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -290,24 +290,16 @@ window.onload = function() {
 
       // バーチャルキーパッドを生成
 	    var pad = new Pad();
-	    pad.moveTo(0, 220);
+	    pad.moveTo(13, 248);
 	    game.rootScene.addChild(pad);
-      //game.rootScene.addEventListener('enterframe', function(e) {
-		  //});
+      pad.scale(0.5,0.5);
 
       var button = new Sprite(50, 50);
       button.image = game.assets["button.png"];
       button.x = 95;
-      button.y = 260;
-      button.mode = "A";
+      button.y = 270;
+      button.buttonMode = "A";
       game.rootScene.addChild(button);
-
-      var pad = new Sprite(32, 16);
-      pad.image = game.assets["pad.png"];
-      pad.x = game.width/2;	// X座標
-      pad.y = game.height - 40;	// Y座標
-      game.rootScene.addChild(pad);
-
 
       end = new Sprite(189, 97);
       end.image = game.assets["end.png"];
@@ -331,7 +323,7 @@ window.onload = function() {
       knight.x = 0;
       knight.y = 0;
       knight.frame = 18;
-      knight.speed = 12;
+      knight.speed = 4;
       knight.hp = knightInitHp;
       game.rootScene.addChild(knight);
       game.keybind(13, 'enter');
