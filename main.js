@@ -8,7 +8,7 @@ window.onload = function() {
   var forward = 'right';
   var cell = 32;
   var labelX = 207;
-  var knightInitHp = 9999;
+  var knightInitHp = 500;
   var kakusu = 360;
   var tairyoku = 20;
   var sound1;
@@ -108,8 +108,8 @@ window.onload = function() {
       map.loadData(premapArray,mapArray);
 
       map.collisionData =[
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -232,6 +232,61 @@ window.onload = function() {
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
       ]
 
+      //game.rootScene.addChild(map);
+
+      var map5 = new Map(16, 16);
+
+      map5.image=game.assets["map1.gif"];
+
+      mapArray5 = [
+
+        [106,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,104,105,106,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,124,125,126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [146,322,144,145,146,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322]
+
+      ]
+
+      map5.loadData(mapArray5);
+      map5.collisionData = [
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+      ]
+
       // バーチャルキーパッドを生成
 	    var pad = new Pad();
 	    pad.moveTo(0, 220);
@@ -279,7 +334,7 @@ window.onload = function() {
       knight.x = 0;
       knight.y = 0;
       knight.frame = 18;
-      knight.speed = 4;
+      knight.speed = 12;
       knight.hp = knightInitHp;
       game.rootScene.addChild(knight);
       game.keybind(13, 'enter');
@@ -434,6 +489,7 @@ window.onload = function() {
           sound1 = game.assets['kowai.mp3'];
           sound1.play();
           map.collisionData = map2.collisionData
+          game.rootScene.addChild(yuka)
           game.rootScene.insertBefore(map2,knightHp);
           game.rootScene.removeChild(kaidan)
           game.rootScene.removeChild(map)
@@ -797,21 +853,42 @@ window.onload = function() {
         megami.y = 245;
         megami.frame = 16;
 
-       /*var yuka = new Sprite(16,16);
+       var yuka = new Sprite(16,16);
        yuka.image = game.assets["map1.gif"];
-       yuka.frame = 322;
-       yuka.x = 124;
-       yuka.y = 250;
+       yuka.frame = 501;
+       yuka.x = 2;
+       yuka.y = 300;
        game.rootScene.addChild(yuka)
-       kaidan.addEventListener("enterframe", function() {
+       yuka.addEventListener("enterframe", function() {
          if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
-           sound1.play();
+           map.collisionData = map5.collisionData
+           game.rootScene.addChild(kaidan)
+           game.rootScene.insertBefore(map5,knightHp);
+           game.rootScene.removeChild(yuka)
+           //game.rootScene.removeChild(kaidan)
+           game.rootScene.removeChild(map)
+           game.rootScene.removeChild(mitchi)
            game.rootScene.removeChild(megami)
+           //game.rootScene.removeChild(slime4)
+           //game.rootScene.removeChild(slime)
+           //game.rootScene.removeChild(slime2)
+           //game.rootScene.removeChild(darkknight)
+           //game.rootScene.removeChild(slimehp)
+           //game.rootScene.removeChild(slimeredhp)
+           //game.rootScene.removeChild(darkknighthp)
+           game.rootScene.removeChild(aitem1)
+           game.rootScene.removeChild(aitem2)
+           //game.rootScene.removeChild(mitchi)
+           //game.rootScene.removeChild(megami)
+           //game.rrotScene.removeChild(yuka)
+           //game.rootScene.removeChild(kaidan2)
+           //game.rootScene.removeChild(pad.png)
+           kaidan.x = 300;
+           kaidan.y = 300;
          }
        });
-*/
+
+
     };
-
-
     game.start();
 };
