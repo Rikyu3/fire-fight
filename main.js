@@ -710,7 +710,7 @@ window.onload = function() {
         var aitem1 = new Sprite(16,16);
         aitem1.image = game.assets["icon0.png"];
         aitem1.x = 100;
-        aitem1.y = 267;
+        aitem1.y = 100;
         aitem1.hp = tairyoku;
         aitem1.frame = 11;
         game.rootScene.addChild(aitem1);
@@ -745,7 +745,6 @@ window.onload = function() {
         aitem2.frame = 11;
         game.rootScene.addChild(aitem2);
         aitem2.addEventListener("enterframe", function() {
-
            if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
                  if(this.hp == 0){
                    sound1 = game.assets['bakuhatsu.mp3'];
