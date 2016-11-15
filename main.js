@@ -345,7 +345,7 @@ window.onload = function() {
           end.visible = true;  //ゲームオーバー
           sound1 = game.assets['failed.mp3'];
           sound1.play();
-          
+          end.backgroundColor = 'black';
         }
         if (game.input.right) {
           this.frame = 22;
@@ -716,6 +716,10 @@ window.onload = function() {
                        knight.hp = knight.hp -1;
                        knightHp.text = "knight hp " + knight.hp;
                      }
+                     if(this.hp === 0){
+                       aitem1.visible = false;  //プレイヤーを非表示にする
+                       sound1.stop();
+                     }
              }
            }
         });
@@ -737,13 +741,16 @@ window.onload = function() {
                    this.y = kakusu;
                  }
                  if(this.hp>0){
-                   var sound3 = game.assets['beam.mp3'].clone();
-                   sound3.play();
+                   var sound3 = game.assets['beam.mp3'].play();
                    this.hp = this.hp -1;
           //         aitem1hp.text = "aitem1hp hp  " + aitem1hp.hp;
                     if(knight.hp>0){
                        knight.hp = knight.hp -1;
                        knightHp.text = "knight hp " + knight.hp;
+                     }
+                     if(this.hp === 0){
+                       aitem2.visible = false;  //プレイヤーを非表示にする
+                       sound1.stop();
                      }
              }
            }
