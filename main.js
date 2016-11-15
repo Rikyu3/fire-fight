@@ -8,9 +8,9 @@ window.onload = function() {
   var forward = 'right';
   var cell = 32;
   var labelX = 207;
-  var knightInitHp = 500;
+  var knightInitHp = 100;
   var kakusu = 360;
-  var tairyoku = 20;
+  var tairyoku = 500;
   var sound1;
 
   // 画像のpreload
@@ -41,7 +41,10 @@ window.onload = function() {
     'sword3.mp3',
     'break.mp3',
     'break2.mp3',
-    'hikari.mp3'
+    'hikari.mp3',
+    'rikyu.mp3',
+    'bakuhatsu.mp3',
+    'failed.mp3'
   ]);
 
   game.onload = function() {
@@ -258,34 +261,34 @@ window.onload = function() {
         [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
         [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
         [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
-        [126,322,104,105,106,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
-        [126,322,124,125,126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
-        [146,322,144,145,146,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322]
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [146,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322]
 
       ]
 
       map5.loadData(mapArray5);
       map5.collisionData = [
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
       ]
 
       // バーチャルキーパッドを生成
@@ -307,6 +310,8 @@ window.onload = function() {
       end.y = (game.height-end.height)/2;
       game.rootScene.addChild(end);
       end.visible = false;  //プレイヤーを非表示にする
+
+
 
 
       // 文字表示
@@ -333,9 +338,14 @@ window.onload = function() {
           左はしは０、右はしはwidth
           上はしは０、下はしはheight
           */
-        if(this.hp == 0){
+        if(this.hp === 0){
+          sound1 = game.assets['music2.mp3'];
+          sound1.stop();
           this.visible = false;  //プレイヤーを非表示にする
           end.visible = true;  //ゲームオーバー
+          sound1 = game.assets['failed.mp3'];
+          sound1.play();
+          
         }
         if (game.input.right) {
           this.frame = 22;
@@ -471,7 +481,7 @@ window.onload = function() {
       kaidan.frame = 14;
       kaidan.x = 302;
       kaidan.y = 1;
-      game.rootScene.addChild(kaidan)
+      game.rootScene.addChild(kaidan);
       kaidan.addEventListener("enterframe", function() {
         if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
           sound1.stop();
@@ -479,6 +489,8 @@ window.onload = function() {
           sound1.play();
           map.collisionData = map2.collisionData
           game.rootScene.addChild(yuka)
+          game.rootScene.addChild(pad);
+          game.rootScene.addChild(button);
           game.rootScene.insertBefore(map2,knightHp);
           game.rootScene.removeChild(kaidan)
           game.rootScene.removeChild(map)
@@ -507,35 +519,6 @@ window.onload = function() {
         }
       });
 
-
-
-      if(knightHp<9750){
-        var kaidan2 = new Sprite(16,16);
-        kaidan2.image = game.assets["map0.png"];
-        kaidan2.frame = 14;
-        kaidan2.x = 1;
-        kaidan2.y = 1;
-        game.rootScene.addChild(kaidan2)
-        kaidan2.addEventListener("enterframe", function() {
-          if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定          map.collisionData = map2.collisionData
-            game.rootScene.insertBefore(map3,knightHp);
-            game.rootScene.removeChild(map)
-            game.rootScene.removeChild(mitchi)
-            //game.rootScene.removeChild(slime4)
-            //game.rootScene.removeChild(slime)
-            //game.rootScene.removeChild(slime2)
-            //game.rootScene.removeChild(darkknight)
-            //game.rootScene.removeChild(slimehp)
-            //game.rootScene.removeChild(slimeredhp)
-            //game.rootScene.removeChild(darkknighthp)
-            //game.rootScene.removeChild(aitem1)
-            //game.rootScene.removeChild(aitem2)
-            //game.rootScene.removeChild(megami)
-            //game.rrotScene.removeChild(yuka)
-
-          }
-        });
-      }
 
 
 
@@ -849,8 +832,13 @@ window.onload = function() {
        game.rootScene.addChild(yuka)
        yuka.addEventListener("enterframe", function() {
          if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
+           sound1.stop();
+           sound1 = game.assets['rikyu.mp3'];
+           sound1.play();
            map.collisionData = map5.collisionData
            game.rootScene.addChild(kaidan)
+           game.rootScene.addChild(pad);
+           game.rootScene.addChild(button);
            game.rootScene.insertBefore(map5,knightHp);
            game.rootScene.removeChild(yuka)
            //game.rootScene.removeChild(kaidan)
@@ -873,6 +861,8 @@ window.onload = function() {
            //game.rootScene.removeChild(pad.png)
            kaidan.x = 300;
            kaidan.y = 300;
+           knight.x = 10;
+           knight.y = 280;
          }
        });
 
