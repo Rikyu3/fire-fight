@@ -343,9 +343,19 @@ window.onload = function() {
           sound1.stop();
           this.visible = false;  //プレイヤーを非表示にする
           end.visible = true;  //ゲームオーバー
-          sound1 = game.assets['failed.mp3'];
-          sound1.play();
+          sound7 = game.assets['failed.mp3'];
+          sound7.play();
           end.backgroundColor = 'black';
+          knight.x = 1;
+          knight.y = 1;
+          game.rootScene.removeChild(kaidan)
+          game.rootScene.removeChild(yuka)
+          game.rootScene.removeChild(aitem1)
+          game.rootScene.removeChild(aitem2)
+          game.rootScene.removeChild(darkknight)
+          game.rootScene.removeChild(slime2)
+          game.rootScene.removeChild(slime)
+          game.rootScene.removeChild(darkknight2)
         }
         if (game.input.right) {
           this.frame = 22;
