@@ -322,7 +322,6 @@ window.onload = function() {
       knightHp.x = labelX;
       knightHp.y = 20;
       game.rootScene.addChild(knightHp);
-      knightHp.color = "red";		// 色を変更
 
       knight = new Sprite(32, 32);
       knight.image = game.assets["chara5.png"];
@@ -430,7 +429,6 @@ window.onload = function() {
       slimehp.x = labelX;
       slimehp.y = 35;
       game.rootScene.addChild(slimehp);
-      slimehp.color = "red";		// 色を変更
 
 
       var slime = new Sprite(32,32);
@@ -540,7 +538,6 @@ window.onload = function() {
       slime2hp.x = labelX;
       slime2hp.y = 51;
       game.rootScene.addChild(slime2hp);
-      slime2hp.color = "red";		// 色を変更
 
         var slime2 = new Sprite(32,32);
         slime2.image = game.assets["chara6.png"];
@@ -606,7 +603,6 @@ window.onload = function() {
         darkknighthp.x = labelX;
         darkknighthp.y = 67;
         game.rootScene.addChild(darkknighthp);
-        darkknighthp.color = "red";		// 色を変更
 
 
         var darkknight = new Sprite(32,32);
@@ -701,16 +697,27 @@ window.onload = function() {
         });
 
 
-        var Dragon = new Sprite(86,86);
+        // 文字表示
+        Dragonhp = new Label();
+        Dragonhp.font = "10px gothic";
+        Dragonhp.text = "Dragonhp hp 200";
+        Dragonhp.x = labelX;
+        Dragonhp.y = 82;
+        game.rootScene.addChild(Dragonhp);
+        Dragonhp.color = "red";		// 色を変更
+
+        var Dragon = new Sprite(80,80);
         Dragon.image = game.assets["Dragon.gif"];
-        Dragon.x = 20;
-        Dragon.y = 200;
+        Dragon.x = 100;
+        Dragon.y = 1;
         Dragon.hp = 444;
-        Dragon.frame = 15;
-        game.rootScene.addChild(Dragon);
+        Dragon.frame = 3;
+        //Dragon.scale(0.5,0.5);
         Dragon.addEventListener("enterframe", function() {
           if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
               if(game.input.enter){
+                var sound6 = game.assets['sword3.mp3'].clone();
+                sound6.play();
                 if(this.hp == 0){
                   this.visible = false;  //プレイヤーを非表示にする
                   this.x = kakusu;
@@ -887,6 +894,7 @@ window.onload = function() {
            game.rootScene.addChild(kaidan)
            game.rootScene.addChild(pad);
            game.rootScene.addChild(button);
+           game.rootScene.addChild(Dragon);
            game.rootScene.insertBefore(map5,knightHp);
            game.rootScene.removeChild(yuka)
            //game.rootScene.removeChild(kaidan)
