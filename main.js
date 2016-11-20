@@ -505,6 +505,7 @@ window.onload = function() {
           game.rootScene.removeChild(map)
           game.rootScene.removeChild(mitchi)
           game.rootScene.removeChild(megami)
+          game.rootScene.removeChild(Dragon)
           //game.rootScene.removeChild(slime4)
           //game.rootScene.removeChild(slime)
           //game.rootScene.removeChild(slime2)
