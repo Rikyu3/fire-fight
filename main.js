@@ -701,11 +701,12 @@ window.onload = function() {
         });
 
 
-        var Dragon = new Sprite(32,32);
+        var Dragon = new Sprite(86,86);
         Dragon.image = game.assets["Dragon.gif"];
         Dragon.x = 20;
-        Dragon.y = 290;
+        Dragon.y = 200;
         Dragon.hp = 444;
+        Dragon.frame = 15;
         game.rootScene.addChild(Dragon);
         Dragon.addEventListener("enterframe", function() {
           if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
