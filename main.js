@@ -27,7 +27,8 @@ window.onload = function() {
     "chara6.png",
     "chara7.png",
     "pad.png",
-    "button.png"
+    "button.png",
+    "Dragon.gif"
   ]);
 
 　// SE,BGMのpreload
@@ -696,6 +697,35 @@ window.onload = function() {
                 }
                 }
               }
+          }
+        });
+
+
+        var Dragon = new Sprite(32,32);
+        Dragon.image = game.assets["Dragon.gif"];
+        Dragon.x = 20;
+        Dragon.y = 290;
+        Dragon.hp = 444;
+        game.rootScene.addChild(Dragon);
+        Dragon.addEventListener("enterframe", function() {
+          if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
+              if(game.input.enter){
+                if(this.hp == 0){
+                  this.visible = false;  //プレイヤーを非表示にする
+                  this.x = kakusu;
+                  this.y = kakusu;
+                }
+                if(this.hp>0){
+                  this.hp = this.hp -1;
+                  Dragon.hp.text = "Dragon hp " + Dragon.hp;
+                  if(Dragon.hp % 5 == 0){
+                    if(knight.hp>0){
+                      knight.hp = knight.hp -1;
+                      knightHp.text = "knighthp " + knight.hp;
+                    }
+                }
+              }
+            }
           }
         });
 
