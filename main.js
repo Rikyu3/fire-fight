@@ -343,7 +343,7 @@ window.onload = function() {
           sound1.stop();
           this.visible = false;  //プレイヤーを非表示にする
           end.visible = true;  //ゲームオーバー
-          sound7 = game.assets['failed.mp3'];
+          sound7 = game.assets['failed.mp3'].play();
           sound7.play();
           end.backgroundColor = 'black';
           knight.x = 1;
