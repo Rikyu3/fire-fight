@@ -256,15 +256,15 @@ window.onload = function() {
         [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
         [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
         [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [140,141,141,141,141,142,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,143,143,143,143,143,322,322,322,322,322,322,322,322,322,322,322,322],
         [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
         [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
-        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
-        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
-        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
-        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
-        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
-        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
-        [146,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322]
+        [126,322,322,104,105,105,105,106,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,124,125,125,125,126,322,322,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,124,125,125,125,126,322,322,322,322,322,322,322,322,322,322,322,322],
+        [146,322,322,124,125,125,125,126,322,322,322,322,322,322,322,322,322,322,322,322]
 
       ]
 
@@ -503,8 +503,7 @@ window.onload = function() {
           game.rootScene.insertBefore(map2,knightHp);
           game.rootScene.removeChild(kaidan)
           game.rootScene.removeChild(map)
-          game.rootScene.removeChild(mitchi)
-          game.rootScene.removeChild(megami)
+          //game.rootScene.removeChild(megami)
           game.rootScene.removeChild(Dragon)
           //game.rootScene.removeChild(slime4)
           //game.rootScene.removeChild(slime)
@@ -805,80 +804,13 @@ window.onload = function() {
            }
         });
 
-        var mitchi = new Sprite(16,16);
-        mitchi.image = game.assets["map1.gif"];
-        mitchi.x = 160;
-        mitchi.y = 260;
-        mitchi.frame = 204;
-        game.rootScene.addChild(mitchi);
-        mitchi.addEventListener("enterframe", function() {
-          if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
-            sound1.stop();
-            sound2 = game.assets['hikari.mp3'];
-            sound2.play();
-            game.rootScene.addChild(megami);
-            knight.image = game.assets["chara1.png"];
-            knight.frame = 0;
-            if(knight.hp == 0){
-              knight.visible = false;  //プレイヤーを非表示にする
-              end.visible = true;  //ゲームオーバー
-            }
-            if (game.input.right) {
-              knight.frame = 0;
-              if((map.hitTest(knight.x + cell - 8 , knight.y + cell - 8) == false)&&
-                  (map.hitTest(knight.x + cell - 8 , knight.y + cell - 25) == false)&&
-                  (map.hitTest(knight.x + cell - 8 , knight.y + cell - 16) == false)){
-                  if(knight.x < height -32 ){
-                    knight.x += knight.speed;
-                    knight.frame = 0 + knight.age %3;
-                    forward = 'right';
-                  }
-                }
-              } else if (game.input.left) {
-                knight.frame = 0;
-                if((map.hitTest(knight.x - knight.speed , knight.y + cell - 8) == false)&&
-                  (map.hitTest(knight.x - knight.speed  , knight.y + cell - 25) == false)&&
-                  (map.hitTest(knight.x - knight.speed  , knight.y + cell - 16) == false)){
-                  if (knight.x >= 0){
-                    knight.x -= knight.speed;
-                    knight.frame = 0 + knight.age %3;
-                    forward = 'left';
-                  }
-                }
-              }
-              //else if( (game.input.down) &&
-              //(map.hitTest(this.x + cell / 2, this.y + cell ) == false) ){}
-              else if (game.input.down){
-                knight.frame = 0;
-                //if(map.hitTest(this.x - cell / 2, this.y + cell ) == false){}
-                if((map.hitTest(knight.x + 8, knight.y + cell ) == false)&&
-                   (map.hitTest(knight.x + cell / 2, knight.y + cell ) == false)){
-                  if(knight.y < height -32 ){
-                    knight.y += knight.speed;
-                    knight.frame = 0 + knight.age %3;
-                    forward ='down';
-                  }
-                }
-              }
-              else if (game.input.up) {
-                knight.frame = 0;
-                if((map.hitTest(knight.x + 8, knight.y  - knight.speed ) == false)&&
-                  (map.hitTest(knight.x + cell / 2, knight.y  - knight.speed ) == false)){
-                  if(knight.y > 0){
-                    knight.y -= knight.speed;
-                    knight.frame = 30 + knight.age %3;
-                    forward = 'up';
-                  }
-                }
-              }
-          }
-        });
-
-        var megami = new Sprite(32,32);
-        megami.image = game.assets["chara0.gif"];
-        megami.x = 260;
-        megami.y = 245;
-        megami.frame = 16;
+    /*   var megami = new Sprite(32,32);
+       megami.image = game.assets["chara0.gif"];
+       megami.x = 260;
+       megami.y = 245;
+       megami.frame = 16;
+       game.rootScene.addChild(megami)
+       */
 
        var yuka = new Sprite(16,16);
        yuka.image = game.assets["map1.gif"];
@@ -900,8 +832,7 @@ window.onload = function() {
            game.rootScene.removeChild(yuka)
            //game.rootScene.removeChild(kaidan)
            game.rootScene.removeChild(map)
-           game.rootScene.removeChild(mitchi)
-           game.rootScene.removeChild(megami)
+           //game.rootScene.removeChild(megami)
            //game.rootScene.removeChild(slime4)
            //game.rootScene.removeChild(slime)
            //game.rootScene.removeChild(slime2)
@@ -922,6 +853,46 @@ window.onload = function() {
            knight.y = 280;
          }
        });
+
+
+       var yuk2 = new Sprite(16,16);
+       yuka2.image = game.assets["icon0.png"];
+       yuk2.frame = 22;
+       yuka2.x = 2;
+       yuka2.y = 300;
+       game.rootScene.addChild(yuka2)
+       yuka2.addEventListener("enterframe", function() {
+         if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
+           map.collisionData
+           game.rootScene.addChild(kaidan);
+           game.rootScene.addChild(pad);
+           game.rootScene.addChild(button);
+           game.rootScene.addChild(Dragon);
+           game.rootScene.insertBefore(map5,knightHp);
+           game.rootScene.removeChild(yuka)
+           //game.rootScene.removeChild(kaidan)
+           game.rootScene.removeChild(map)
+           //game.rootScene.removeChild(megami)
+           //game.rootScene.removeChild(slime4)
+           //game.rootScene.removeChild(slime)
+           //game.rootScene.removeChild(slime2)
+           //game.rootScene.removeChild(darkknight)
+           //game.rootScene.removeChild(slimehp)
+           //game.rootScene.removeChild(slimeredhp)
+           //game.rootScene.removeChild(darkknighthp)
+           game.rootScene.removeChild(aitem1)
+           game.rootScene.removeChild(aitem2)
+           //game.rootScene.removeChild(mitchi)
+           //game.rootScene.removeChild(megami)
+           //game.rrotScene.removeChild(yuka)
+           //game.rootScene.removeChild(kaidan2)
+           //game.rootScene.removeChild(pad.png)
+           knight.x = 1;
+           knight.y = 1;
+         }
+       });
+
+
 
 
     };
