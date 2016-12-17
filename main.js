@@ -700,7 +700,7 @@ window.onload = function() {
         // 文字表示
         Dragonhp = new Label();
         Dragonhp.font = "10px gothic";
-        Dragonhp.text = "Dragonhp hp 200";
+        Dragonhp.text = "Dragonhp hp 444";
         Dragonhp.x = labelX;
         Dragonhp.y = 82;
         game.rootScene.addChild(Dragonhp);
@@ -725,7 +725,7 @@ window.onload = function() {
                 }
                 if(this.hp>0){
                   this.hp = this.hp -1;
-                  Dragon.hp.text = "Dragon hp " + Dragon.hp;
+                  Dragonhp.text = "Dragon hp " + Dragon.hp;
                   if(Dragon.hp % 5 == 0){
                     if(knight.hp>0){
                       knight.hp = knight.hp -1;
@@ -804,13 +804,6 @@ window.onload = function() {
            }
         });
 
-    /*   var megami = new Sprite(32,32);
-       megami.image = game.assets["chara0.gif"];
-       megami.x = 260;
-       megami.y = 245;
-       megami.frame = 16;
-       game.rootScene.addChild(megami)
-       */
 
        var yuka = new Sprite(16,16);
        yuka.image = game.assets["map1.gif"];
@@ -855,9 +848,9 @@ window.onload = function() {
        });
 
 
-       var yuk2 = new Sprite(16,16);
+      /* var yuka2 = new Sprite(16,16);
        yuka2.image = game.assets["icon0.png"];
-       yuk2.frame = 22;
+       yuka2.frame = 22;
        yuka2.x = 2;
        yuka2.y = 300;
        game.rootScene.addChild(yuka2)
@@ -891,7 +884,7 @@ window.onload = function() {
            knight.y = 1;
          }
        });
-
+*/
 
 
 
