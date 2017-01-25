@@ -45,7 +45,8 @@ window.onload = function() {
     'hikari.mp3',
     'rikyu.mp3',
     'bakuhatsu.mp3',
-    'failed.mp3'
+    'failed.mp3',
+    'hakai2.mp3'
   ]);
 
   game.onload = function() {
@@ -717,7 +718,7 @@ window.onload = function() {
           var dx = 0;
           var dy = 0;
           this.frame = 2;
-          if (this.age % 18 == 0) {
+          if (this.age % 30 == 0) {
             var d = Math.floor(Math.random()*4 );
             if (d==0){
              dy = -16;
@@ -730,12 +731,8 @@ window.onload = function() {
             }
             var x = this.x + dx;
             var y = this.y + dy;
-            var _x = this.x + (dx ? dx / Math.abs(dx) * (cell / 2) : 0) + (cell / 2);
-            var _y = this.y + (dy ? dy / Math.abs(dy) * (cell / 2) : 0) + (cell / 2);
-            if (x<(width-cell) && y<(height-cell) && x>0 && y>0 && !map.hitTest(_x,_y)){
               this.x = x;
               this.y = y;
-            }
           }
           if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
               if(game.input.enter){
@@ -745,6 +742,8 @@ window.onload = function() {
                   this.visible = false;  //プレイヤーを非表示にする
                   this.x = kakusu;
                   this.y = kakusu;
+                  var sound4 = game.assets['break.mp3'].clone();
+                  sound4.play();
                 }
                 if(this.hp>0){
                   this.hp = this.hp -1;
