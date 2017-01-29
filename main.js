@@ -783,7 +783,7 @@ window.onload = function() {
         Dragonhp.text = "Dragonhp hp 444";
         Dragonhp.x = labelX;
         Dragonhp.y = 82;
-        game.rootScene.addChild(Dragonhp);
+        //game.rootScene.addChild(Dragonhp);
         Dragonhp.color = "red";		// 色を変更
 
         var Dragon = new Sprite(80,80);
@@ -925,7 +925,7 @@ window.onload = function() {
            game.rootScene.addChild(kaidan)
            game.rootScene.addChild(pad);
            game.rootScene.addChild(button);
-           game.rootScene.addChild(Dragon);
+           //game.rootScene.addChild(Dragon);
            game.rootScene.addChild(darkknight2);
            game.rootScene.addChild(darkknight3);
            game.rootScene.addChild(darkknight4);
