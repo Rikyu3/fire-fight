@@ -60,6 +60,19 @@ window.onload = function() {
         sound1.src.loop = true;
     }
 
+    game.rootScene.removeChild(darkknight2);
+    game.rootScene.removeChild(darkknight3);
+    game.rootScene.removeChild(darkknight4);
+    game.rootScene.removeChild(darkknight5);
+    game.rootScene.removeChild(darkknight6);
+    game.rootScene.removeChild(darkknight7);
+    game.rootScene.removeChild(darkknight8);
+    game.rootScene.removeChild(darkknight9);
+    game.rootScene.removeChild(darkknight10);
+    game.rootScene.removeChild(darkknight11);
+    game.rootScene.removeChild(darkknight12);
+    game.rootScene.removeChild(darkknight13);
+
     var map = new Map(16,16);
     map.image=game.assets["map1.gif"];
 
@@ -254,9 +267,9 @@ window.onload = function() {
         [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
         [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
         [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
-        [126,322,322,322,322,322,322,322,322,322,104,105,105,106,322,322,322,322,322,322],
-        [126,322,322,322,322,322,322,322,322,322,124,125,125,126,322,322,322,322,322,322],
-        [140,141,141,141,141,142,322,322,322,322,124,125,125,126,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,30,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
+        [140,141,141,141,141,142,322,322,322,322,104,105,105,106,322,322,322,322,322,322],
         [126,322,322,322,322,322,322,322,322,322,124,125,125,126,322,322,322,322,322,322],
         [126,322,322,322,322,322,322,322,322,322,124,125,125,126,322,322,322,322,322,322],
         [126,322,322,143,143,143,143,143,322,322,124,125,125,126,322,322,322,322,322,322],
@@ -278,10 +291,10 @@ window.onload = function() {
         [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
         [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [1,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0],
-        [1,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0],
-        [1,1,1,1,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,1,1,1,1,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0],
         [1,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0],
         [1,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0],
         [1,0,0,1,1,1,1,0,0,0,1,0,1,0,0,0,0,0,0,0],
@@ -666,37 +679,103 @@ window.onload = function() {
 
         var darkknight2 = new Sprite(32,32);
         darkknight2.image = game.assets["chara7.png"];
-        darkknight2.x = 290;
-        darkknight2.y = 156;
-        darkknight2.hp = 250;
-        game.rootScene.addChild(darkknight2);
-        darkknight2.addEventListener("enterframe", function() {
-          if(this.intersect(knight)){ 　//プレイヤーが敵と衝突しているかを判定
-              if(game.input.enter){
-                var sound6 = game.assets['sword3.mp3'].clone();
-                sound6.play();
-                if(this.hp == 0){
-                  this.visible = false;　//プレイヤーを非表示にする　
-                  this.x = kakusu;
-                  this.y = kakusu;
-                  var sound5 = game.assets['break2.mp3'].clone();
-                  sound5.play();
-                  kaidan.x = 32;
-                  kaidan.y = 211;
-                }
-                if(this.hp>0){
-                  this.hp = this.hp -1;
-                  if(this.hp % 5 == 0){
-                    if(knight.hp>0){
-                      knight.hp = knight.hp -1;
-                      knightHp.text = "knight hp " + knight.hp;
-                    }
-                }
-                }
-              }
-          }
-        });
+        darkknight2.x = 146;
+        darkknight2.y = 100;
 
+        var darkknight3 = new Sprite(32,32);
+        darkknight3.image = game.assets["chara7.png"];
+        darkknight3.x = 100;
+        darkknight3.y = 100;
+
+        var darkknight4 = new Sprite(32,32);
+        darkknight4.image = game.assets["chara5.png"];
+        darkknight4.frame = 4;
+        darkknight4.x = 178;
+        darkknight4.y = 100;
+
+        var darkknight5 = new Sprite(32,32);
+        darkknight5.image = game.assets["chara5.png"];
+        darkknight5.frame = 4;
+        darkknight5.x = 162;
+        darkknight5.y = 100;
+
+        var darkknight6 = new Sprite(32,32);
+        darkknight6.image = game.assets["chara5.png"];
+        darkknight6.frame = 4;
+        darkknight6.x = 195;
+        darkknight6.y = 100;
+
+        var darkknight7 = new Sprite(32,32);
+        darkknight7.image = game.assets["chara5.png"];
+        darkknight7.frame = 4;
+        darkknight7.x = 84;
+        darkknight7.y = 100;
+
+        var darkknight8 = new Sprite(32,32);
+        darkknight8.image = game.assets["chara5.png"];
+        darkknight8.frame = 4;
+        darkknight8.x = 211;
+        darkknight8.y = 100;
+
+        var darkknight9 = new Sprite(32,32);
+        darkknight9.image = game.assets["chara5.png"];
+        darkknight9.frame = 4;
+        darkknight9.x = 227;
+        darkknight9.y = 100;
+
+        var darkknight10 = new Sprite(32,32);
+        darkknight10.image = game.assets["chara5.png"];
+        darkknight10.frame = 4;
+        darkknight10.x = 243;
+        darkknight10.y = 100;
+
+        var darkknight11 = new Sprite(32,32);
+        darkknight11.image = game.assets["chara5.png"];
+        darkknight11.frame = 4;
+        darkknight11.x = 259;
+        darkknight11.y = 100;
+
+        var darkknight12 = new Sprite(32,32);
+        darkknight12.image = game.assets["chara5.png"];
+        darkknight12.frame = 4;
+        darkknight12.x = 275;
+        darkknight12.y = 100;
+
+        var darkknight13 = new Sprite(32,32);
+        darkknight13.image = game.assets["chara5.png"];
+        darkknight13.frame = 4;
+        darkknight13.x = 291;
+        darkknight13.y = 100;
+
+        var darkknight14 = new Sprite(32,32);
+        darkknight14.image = game.assets["chara5.png"];
+        darkknight14.frame = 4;
+        darkknight14.x = 68;
+        darkknight14.y = 100;
+
+        var darkknight15 = new Sprite(32,32);
+        darkknight15.image = game.assets["chara5.png"];
+        darkknight15.frame = 4;
+        darkknight15.x = 52;
+        darkknight15.y = 100;
+
+        var darkknight16 = new Sprite(32,32);
+        darkknight16.image = game.assets["chara5.png"];
+        darkknight16.frame = 4;
+        darkknight16.x = 36;
+        darkknight16.y = 100;
+
+        var darkknight17 = new Sprite(32,32);
+        darkknight17.image = game.assets["chara5.png"];
+        darkknight17.frame = 4;
+        darkknight17.x = 20;
+        darkknight17.y = 100;
+
+        var darkknight18 = new Sprite(32,32);
+        darkknight18.image = game.assets["chara5.png"];
+        darkknight18.frame = 4;
+        darkknight18.x = 4;
+        darkknight18.y = 100;
 
         // 文字表示
         Dragonhp = new Label();
@@ -847,6 +926,23 @@ window.onload = function() {
            game.rootScene.addChild(pad);
            game.rootScene.addChild(button);
            game.rootScene.addChild(Dragon);
+           game.rootScene.addChild(darkknight2);
+           game.rootScene.addChild(darkknight3);
+           game.rootScene.addChild(darkknight4);
+           game.rootScene.addChild(darkknight5);
+           game.rootScene.addChild(darkknight6);
+           game.rootScene.addChild(darkknight7);
+           game.rootScene.addChild(darkknight8);
+           game.rootScene.addChild(darkknight9);
+           game.rootScene.addChild(darkknight10);
+           game.rootScene.addChild(darkknight11);
+           game.rootScene.addChild(darkknight12);
+           game.rootScene.addChild(darkknight13);
+           game.rootScene.addChild(darkknight14);
+           game.rootScene.addChild(darkknight15);
+           game.rootScene.addChild(darkknight16);
+           game.rootScene.addChild(darkknight17);
+           game.rootScene.addChild(darkknight18);
            game.rootScene.insertBefore(map5,knightHp);
            game.rootScene.removeChild(yuka)
            //game.rootScene.removeChild(kaidan)
@@ -855,7 +951,8 @@ window.onload = function() {
            //game.rootScene.removeChild(slime4)
            //game.rootScene.removeChild(slime)
            //game.rootScene.removeChild(slime2)
-           //game.rootScene.removeChild(darkknight)
+           game.rootScene.removeChild(darkknight)
+
            //game.rootScene.removeChild(slimehp)
            //game.rootScene.removeChild(slimeredhp)
            //game.rootScene.removeChild(darkknighthp)
@@ -863,7 +960,7 @@ window.onload = function() {
            game.rootScene.removeChild(aitem2)
            //game.rootScene.removeChild(mitchi)
            //game.rootScene.removeChild(megami)
-           //game.rrotScene.removeChild(yuka)
+           //game.rrotScene.removeChild(yuka)SSSSSSS
            //game.rootScene.removeChild(kaidan2)
            //game.rootScene.removeChild(pad.png)
            kaidan.x = 300;
