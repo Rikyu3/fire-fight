@@ -267,7 +267,7 @@ window.onload = function() {
         [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
         [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
         [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
-        [126,322,322,322,322,322,322,322,322,30,322,322,322,322,322,322,322,322,322,322],
+        [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
         [126,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322,322],
         [140,141,141,141,141,142,322,322,322,322,104,105,105,106,322,322,322,322,322,322],
         [126,322,322,322,322,322,322,322,322,322,124,125,125,126,322,322,322,322,322,322],
@@ -970,44 +970,15 @@ window.onload = function() {
          }
        });
 
-
-      /* var yuka2 = new Sprite(16,16);
-       yuka2.image = game.assets["icon0.png"];
-       yuka2.frame = 22;
-       yuka2.x = 2;
-       yuka2.y = 300;
-       game.rootScene.addChild(yuka2)
-       yuka2.addEventListener("enterframe", function() {
-         if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
-           map.collisionData
-           game.rootScene.addChild(kaidan);
-           game.rootScene.addChild(pad);
-           game.rootScene.addChild(button);
-           game.rootScene.addChild(Dragon);
-           game.rootScene.insertBefore(map5,knightHp);
-           game.rootScene.removeChild(yuka)
-           //game.rootScene.removeChild(kaidan)
-           game.rootScene.removeChild(map)
-           //game.rootScene.removeChild(megami)
-           //game.rootScene.removeChild(slime4)
-           //game.rootScene.removeChild(slime)
-           //game.rootScene.removeChild(slime2)
-           //game.rootScene.removeChild(darkknight)
-           //game.rootScene.removeChild(slimehp)
-           //game.rootScene.removeChild(slimeredhp)
-           //game.rootScene.removeChild(darkknighthp)
-           game.rootScene.removeChild(aitem1)
-           game.rootScene.removeChild(aitem2)
-           //game.rootScene.removeChild(mitchi)
-           //game.rootScene.removeChild(megami)
-           //game.rrotScene.removeChild(yuka)
-           //game.rootScene.removeChild(kaidan2)
-           //game.rootScene.removeChild(pad.png)
-           knight.x = 1;
-           knight.y = 1;
-         }
+       var　castle = new Sprite(16,16);
+       castle.image = game.assets["map1.gif"];
+       castle.x = 200;
+       castle.y = 200;
+       castle.frame = 500;
+       game.rootScene.addChild(castle);
+       castle.addEventListener("enterframe", function() {
        });
-*/
+
 
 
 
