@@ -1073,6 +1073,10 @@ window.onload = function() {
            game.rootScene.removeChild(kaidan)
            game.rootScene.removeChild(slime)
            game.rootScene.removeChild(slime2)
+           game.rootScene.removeChild(knightHp)
+           game.rootScene.removeChild(slimehp)
+           game.rootScene.removeChild(slime2hp)
+           game.rootScene.removeChild(darkknighthp)
            yuka.x = 1;
            yuka.y = 1;
            knight.x = 135;
