@@ -13,6 +13,7 @@ window.onload = function() {
   var tairyoku = 500;
   var sound1;
 
+
   // 画像のpreload
   game.preload([
     "end.png",
@@ -62,18 +63,6 @@ window.onload = function() {
         sound1.src.loop = true;
     }
 
-    game.rootScene.removeChild(darkknight2);
-    game.rootScene.removeChild(darkknight3);
-    game.rootScene.removeChild(darkknight4);
-    game.rootScene.removeChild(darkknight5);
-    game.rootScene.removeChild(darkknight6);
-    game.rootScene.removeChild(darkknight7);
-    game.rootScene.removeChild(darkknight8);
-    game.rootScene.removeChild(darkknight9);
-    game.rootScene.removeChild(darkknight10);
-    game.rootScene.removeChild(darkknight11);
-    game.rootScene.removeChild(darkknight12);
-    game.rootScene.removeChild(darkknight13);
 
     var map = new Map(16,16);
     map.image=game.assets["map1.gif"];
@@ -260,30 +249,30 @@ window.onload = function() {
 
       var map6 = new Map(16, 16);
 
-      map6.image=game.assets["map0.png"];
+      map6.image=game.assets["map1.png"];
 
       mapArray6 = [
 
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0]
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0],
+        [64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64],
+        [64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64],
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,64,64,64,0,0,0,0,0,0,0,0,0]
       ]
 
       map6.loadData(mapArray6);
@@ -297,8 +286,8 @@ window.onload = function() {
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -347,7 +336,7 @@ window.onload = function() {
       knight.x = 0;
       knight.y = 0;
       knight.frame = 18;
-      knight.speed = 4;
+      knight.speed = 8;
       knight.hp = knightInitHp;
       game.rootScene.addChild(knight);
       game.keybind(13, 'enter');
@@ -522,7 +511,7 @@ window.onload = function() {
           game.rootScene.removeChild(kaidan)
           game.rootScene.removeChild(map)
           //game.rootScene.removeChild(megami)
-          game.rootScene.removeChild(Dragon)
+          //game.rootScene.removeChild(Dragon)
           //game.rootScene.removeChild(slime4)
           //game.rootScene.removeChild(slime)
           //game.rootScene.removeChild(slime2)
@@ -698,11 +687,20 @@ window.onload = function() {
         });
 
 
-        var darkknight2 = new Sprite(32,32);
-        darkknight2.image = game.assets["chara7.png"];
-        darkknight2.x = 146;
-        darkknight2.y = 100;
+        var Night = enchant.Class.create(enchant.Sprite, {
+          initialize: function(x, y) {
+            enchant.Sprite.call(this, 32, 32);
+            this.x = x;
+            this.y = y;
+            this.image = game.assets["chara5.png"];
+            this.frame = 4;
+          }
+        });
 
+        var night1 = new Night(50, 50);
+
+        var darkknight2 = new Night(146, 100);
+        // TODO: refactoring night
         var darkknight3 = new Sprite(32,32);
         darkknight3.image = game.assets["chara7.png"];
         darkknight3.x = 100;
@@ -822,6 +820,33 @@ window.onload = function() {
         hito4.x = 252;
         hito4.y = 230;
 
+        var diff_x = -8;
+        var diff_y = -8;
+
+        var gosinnboku = new Sprite(16,16);
+        gosinnboku.image = game.assets["map1.png"];
+        gosinnboku.frame = 60;
+        gosinnboku.x = 144 + diff_x;
+        gosinnboku.y = 152 + diff_y;
+
+        var gosinnboku2 = new Sprite(16,16);
+        gosinnboku2.image = game.assets["map1.png"];
+        gosinnboku2.frame = 61;
+        gosinnboku2.x = 160 + diff_x;
+        gosinnboku2.y = 152 + diff_y;
+
+        var gosinnboku3 = new Sprite(16,16);
+        gosinnboku3.image = game.assets["map1.png"];
+        gosinnboku3.frame = 76;
+        gosinnboku3.x = 144 + diff_x;
+        gosinnboku3.y = 168 + diff_y;
+
+        var gosinnboku4 = new Sprite(16,16);
+        gosinnboku4.image = game.assets["map1.png"];
+        gosinnboku4.frame = 77;
+        gosinnboku4.x = 160 + diff_x;
+        gosinnboku4.y = 168 + diff_y;
+
 
         // 文字表示
         Dragonhp = new Label();
@@ -837,8 +862,9 @@ window.onload = function() {
         Dragon.x = 100;
         Dragon.y = 1;
         Dragon.hp = 444;
-        //Dragon.frame = 3;
+        Dragon.frame = 3;
         //Dragon.scale(0.5,0.5);
+        //game.rootScene.addChild(Dragon);
         Dragon.addEventListener("enterframe", function() {
           var dx = 0;
           var dy = 0;
@@ -1008,7 +1034,7 @@ window.onload = function() {
            game.rootScene.removeChild(aitem2)
            //game.rootScene.removeChild(mitchi)
            //game.rootScene.removeChild(megami)
-           //game.rrotScene.removeChild(yuka)SSSSSSS
+           //game.rrotScene.removeChild(yuka)
            //game.rootScene.removeChild(kaidan2)
            //game.rootScene.removeChild(pad.png)
            kaidan.x = 300;
@@ -1035,7 +1061,7 @@ window.onload = function() {
        castle2.x = 123;
        castle2.y = 108;
        castle2.frame = 500;
-       castle.addEventListener("enterframe", function() {
+       castle2.addEventListener("enterframe", function() {
          if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
            knight.x = 120;
            knight.y = 76;
@@ -1048,6 +1074,10 @@ window.onload = function() {
            game.rootScene.addChild(hito2);
            game.rootScene.addChild(hito3);
            game.rootScene.addChild(hito4);
+           game.rootScene.addChild(gosinnboku);
+           game.rootScene.addChild(gosinnboku2);
+           game.rootScene.addChild(gosinnboku3);
+           game.rootScene.addChild(gosinnboku4);
            game.rootScene.insertBefore(map6,knightHp);
            game.rootScene.removeChild(map)
            game.rootScene.removeChild(Dragon)
