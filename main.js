@@ -1,4 +1,4 @@
-enchant();
+ enchant();
 
 window.onload = function() {
   var game = new Game(320,320);
@@ -48,7 +48,8 @@ window.onload = function() {
     'bakuhatsu.mp3',
     'failed.mp3',
     'hakai2.mp3',
-    'door.mp3'
+    'door.mp3',
+    'kaifuku.mp3'
   ]);
 
   game.onload = function() {
@@ -254,14 +255,14 @@ window.onload = function() {
       mapArray6 = [
 
         [1,1,1,1,1,1,1,1,83,84,85,1,1,1,1,1,1,1,1,1],
-        [1,1,1,1,1,1,1,1,99,100,101,1,1,1,1,1,1,1,1,1],
-        [1,1,1,1,1,1,1,1,99,100,101,1,1,1,1,1,1,1,1,1],
-        [1,1,1,1,1,1,1,1,99,100,101,1,1,1,1,1,1,1,1,1],
-        [1,1,1,1,1,1,1,1,99,100,101,1,1,1,1,1,1,1,1,1],
-        [1,1,1,1,1,1,1,1,99,100,101,1,1,1,1,1,1,1,1,1],
-        [1,1,1,1,1,1,1,1,99,100,101,1,1,1,1,1,1,1,1,1],
-        [1,1,1,1,1,1,1,1,99,100,101,1,1,1,1,1,1,1,1,1],
-        [1,1,1,1,1,1,1,1,99,100,101,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,99,100,101,1,1,131,131,131,131,131,131,131],
+        [1,1,1,1,1,1,1,1,99,100,101,1,1,131,131,1,1,1,1,131],
+        [1,1,1,1,1,1,1,1,99,100,101,1,1,131,131,1,1,1,1,131],
+        [1,1,1,1,1,1,1,1,99,100,101,1,1,131,131,1,1,131,131,131],
+        [1,1,1,1,1,1,1,1,99,100,101,1,1,131,131,1,1,1,1,131],
+        [1,1,1,1,1,1,1,1,99,100,101,1,1,131,131,1,1,1,1,131],
+        [1,1,1,1,1,1,1,1,99,100,101,1,1,131,131,131,131,1,1,131],
+        [1,1,1,1,1,1,1,1,99,100,101,1,1,131,131,131,131,12,12,131],
         [83,84,84,84,84,84,84,84,1,1,1,84,84,84,84,84,84,84,84,85],
         [115,116,116,116,116,116,116,116,1,1,1,116,116,116,116,116,116,116,116,117],
         [1,1,1,1,1,1,1,1,99,100,101,16,17,17,18,1,1,16,17,18],
@@ -277,27 +278,81 @@ window.onload = function() {
 
       map6.loadData(mapArray6);
       map6.collisionData = [
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,1],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,1],
         [0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,1,1,1],
+        [0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,1],
+        [0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,1,1,1],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        [1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1],
+        [0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0]
       ]
+
+
+      var map7 = new Map(16, 16);
+
+      map7.image=game.assets["map1.png"];
+
+      mapArray7 = [
+
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+      ]
+
+      map7.loadData(mapArray7);
+      map7.collisionData = [
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      ]
+
 
 
       // バーチャルキーパッドを生成
@@ -336,7 +391,7 @@ window.onload = function() {
       knight.x = 0;
       knight.y = 0;
       knight.frame = 18;
-      knight.speed = 8;
+      knight.speed = 5;
       knight.hp = knightInitHp;
       game.rootScene.addChild(knight);
       game.keybind(13, 'enter');
@@ -545,12 +600,24 @@ window.onload = function() {
           game.rootScene.removeChild(darkknight18)
           game.rootScene.removeChild(castle)
           game.rootScene.removeChild(castle2)
+          game.rootScene.removeChild(takara1)
+          game.rootScene.removeChild(takara2)
+          game.rootScene.removeChild(gosinnboku)
+          game.rootScene.removeChild(gosinnboku2)
+          game.rootScene.removeChild(gosinnboku3)
+          game.rootScene.removeChild(gosinnboku4)
+          game.rootScene.removeChild(hito1)
+          game.rootScene.removeChild(hito2)
+          game.rootScene.removeChild(hito3)
+          game.rootScene.removeChild(hito4)
           slime.x = 1;
           slime.y = 1;
           slime2.x = 1;
           slime2.y = 240;
           darkknight.x = 120;
           darkknight.y = 240;
+          yuka.x = 1;
+          yuka.y = 290;
         }
       });
 
@@ -847,6 +914,41 @@ window.onload = function() {
         gosinnboku4.x = 160 + diff_x;
         gosinnboku4.y = 168 + diff_y;
 
+        var takara1 = new Sprite(16,16);
+        takara1.image = game.assets["map0.png"];
+        takara1.frame = 25;
+        takara1.x = 285;
+        takara1.y = 38;
+        takara1.rotation = 90;  // 時計回りに90度回転させる
+        takara1.addEventListener("enterframe", function() {
+          if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
+            if(game.input.enter){
+              var sound8 = game.assets['kaifuku.mp3'].play();
+              knight.hp = knight.hp +100;
+              knightHp.text = "knighthp " + knight.hp;
+              game.rootScene.removeChild(takara1);
+            }
+          }
+        });
+
+
+        var takara2 = new Sprite(16,16);
+        takara2.image = game.assets["map0.png"];
+        takara2.frame = 25;
+        takara2.x = 1;
+        takara2.y = 248;
+        takara2.rotation = -90;　//  時計回りに-90度回転させる
+        takara2.addEventListener("enterframe", function() {
+          if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
+            if(game.input.enter){
+              var sound8 = game.assets['kaifuku.mp3'].play();
+              knight.hp = knight.hp +100;
+              knightHp.text = "knighthp " + knight.hp;
+              game.rootScene.removeChild(takara2);
+            }
+          }
+        });
+
 
         // 文字表示
         Dragonhp = new Label();
@@ -1019,6 +1121,17 @@ window.onload = function() {
            game.rootScene.addChild(castle2);
            game.rootScene.insertBefore(map5,knightHp);
            game.rootScene.removeChild(yuka)
+           game.rootScene.removeChild(takara1)
+           game.rootScene.removeChild(takara2)
+           game.rootScene.removeChild(gosinnboku)
+           game.rootScene.removeChild(gosinnboku2)
+           game.rootScene.removeChild(gosinnboku3)
+           game.rootScene.removeChild(gosinnboku4)
+           game.rootScene.removeChild(hito1)
+           game.rootScene.removeChild(hito2)
+           game.rootScene.removeChild(hito3)
+           game.rootScene.removeChild(hito4)
+
            //game.rootScene.removeChild(kaidan)
            game.rootScene.removeChild(map)
            //game.rootScene.removeChild(megami)
@@ -1067,7 +1180,12 @@ window.onload = function() {
            knight.y = 76;
            var sound8 = game.assets['door.mp3'].play();
            map.collisionData = map6.collisionData
-           game.rootScene.removeChild(yuka)
+           game.rootScene.addChild(noboru);
+           game.rootScene.addChild(noboru2);
+           game.rootScene.addChild(noboru3);
+           game.rootScene.addChild(kaidan);
+           game.rootScene.addChild(yuka);
+           game.rootScene.addChild(button);
            game.rootScene.addChild(pad);
            game.rootScene.addChild(button);
            game.rootScene.addChild(hito1);
@@ -1078,6 +1196,8 @@ window.onload = function() {
            game.rootScene.addChild(gosinnboku2);
            game.rootScene.addChild(gosinnboku3);
            game.rootScene.addChild(gosinnboku4);
+           game.rootScene.addChild(takara1);
+           game.rootScene.addChild(takara2);
            game.rootScene.insertBefore(map6,knightHp);
            game.rootScene.removeChild(map)
            game.rootScene.removeChild(Dragon)
@@ -1100,20 +1220,95 @@ window.onload = function() {
            game.rootScene.removeChild(darkknight18)
            game.rootScene.removeChild(castle)
            game.rootScene.removeChild(castle2)
-           game.rootScene.removeChild(kaidan)
            game.rootScene.removeChild(slime)
            game.rootScene.removeChild(slime2)
-           game.rootScene.removeChild(knightHp)
+           //game.rootScene.removeChild(knightHp)
            game.rootScene.removeChild(slimehp)
            game.rootScene.removeChild(slime2hp)
            game.rootScene.removeChild(darkknighthp)
-           yuka.x = 1;
-           yuka.y = 1;
+           yuka.x = 145;
+           yuka.y = 300;
+           kaidan.x = 300;
+           kaidan.y = 250;
            knight.x = 135;
-           knight.y = 290;
+           knight.y = 245;
+           knightHp.x = 245;
+           knightHp.y = 3;
 
          }
        });
+
+
+       var　noboru = new Sprite(16,16);
+       noboru.image = game.assets["map1.png"];
+       noboru.x = 158;
+       noboru.y = 1;
+       noboru.frame = 13;
+       noboru.rotation = 90;  // 時計回りに90度回転させる
+       noboru.addEventListener("enterframe", function() {
+         if(this.intersect(knight)){  //プレイヤーが敵と衝突しているかを判定
+           map.collisionData = map7.collisionData
+           //game.rootScene.addChild(kaidan);
+           //game.rootScene.addChild(yuka);
+           game.rootScene.addChild(button);
+           game.rootScene.addChild(pad);
+           //game.rootScene.addChild(button);
+           //game.rootScene.addChild(hito1);
+           //game.rootScene.addChild(hito2);
+           //game.rootScene.addChild(hito3);
+           //game.rootScene.addChild(hito4);
+           //game.rootScene.addChild(gosinnboku);
+           //game.rootScene.addChild(gosinnboku2);
+           //game.rootScene.addChild(gosinnboku3);
+           //game.rootScene.addChild(gosinnboku4);
+           //game.rootScene.addChild(takara1);
+           //game.rootScene.addChild(takara2);
+           game.rootScene.insertBefore(map6,knightHp);
+           game.rootScene.removeChild(map)
+           game.rootScene.removeChild(Dragon)
+           game.rootScene.removeChild(darkknight2)
+           game.rootScene.removeChild(darkknight3)
+           game.rootScene.removeChild(darkknight4)
+           game.rootScene.removeChild(darkknight5)
+           game.rootScene.removeChild(darkknight6)
+           game.rootScene.removeChild(darkknight7)
+           game.rootScene.removeChild(darkknight8)
+           game.rootScene.removeChild(darkknight9)
+           game.rootScene.removeChild(darkknight10)
+           game.rootScene.removeChild(darkknight11)
+           game.rootScene.removeChild(darkknight12)
+           game.rootScene.removeChild(darkknight13)
+           game.rootScene.removeChild(darkknight14)
+           game.rootScene.removeChild(darkknight15)
+           game.rootScene.removeChild(darkknight16)
+           game.rootScene.removeChild(darkknight17)
+           game.rootScene.removeChild(darkknight18)
+           game.rootScene.removeChild(castle)
+           game.rootScene.removeChild(castle2)
+           game.rootScene.removeChild(slime)
+           game.rootScene.removeChild(slime2)
+           //game.rootScene.removeChild(knightHp)
+           game.rootScene.removeChild(slimehp)
+           game.rootScene.removeChild(slime2hp)
+           game.rootScene.removeChild(darkknighthp)
+         }
+       });
+
+       var　noboru2 = new Sprite(16,16);
+       noboru2.image = game.assets["map1.png"];
+       noboru2.x = 142;
+       noboru2.y = 1;
+       noboru2.frame = 13;
+       noboru2.rotation = 90;  // 時計回りに90度回転させる
+
+       var　noboru3 = new Sprite(16,16);
+       noboru3.image = game.assets["map1.png"];
+       noboru3.x = 128;
+       noboru3.y = 1;
+       noboru3.frame = 13;
+       noboru3.rotation = 90;  // 時計回りに90度回転させる
+
+
 
     };
     game.start();
